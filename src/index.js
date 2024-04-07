@@ -4,10 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import router from './Router/router';
+import { RouterProvider } from 'react-router';
+import { ThemeProvider } from 'react-bootstrap';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider dir="rtl">
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>
 );
 
