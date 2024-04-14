@@ -13,7 +13,7 @@ function DepartmentInfo({}) {
                         <h4 className='mb-3 text-white-50'>اسم الكلية</h4>
                         <h1 className='mb-4'>عنوان القسم العلمي</h1>
                         <p className='fs-5 mb-5'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, ratione. Laudantium fugit aspernatur dignissimos porro maiores ex ratione, maxime praesentium nemo, reprehenderit magnam deleniti voluptatem, dolorum sapiente harum earum facilis.</p>
-                        <Link className='link text-white-50' to={"/col/default"}>الرجوع الى الكليات</Link>
+                        <Link className='link text-white-50' to={"/faculty/default"}>الرجوع الى الكليات</Link>
                     </div>
                 </Container>
             </header>
@@ -71,10 +71,10 @@ function DepartmentInfo({}) {
                                             Array.from({length:5}).map((x,i)=>
 
                                             <Row className={`py-3 px-2 border-2 ${i<5-1 ? "border-bottom" : ""}`}>
-                                            <Col className='col-2'>AAA-000</Col>
-                                            <Col className='col-3'>إسم المادة هنا</Col>
-                                            <Col className='col-2'>4 ساعات</Col>
-                                            <Col className='col-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ipsam sunt nemo! Autem, nobis placeat! Magni totam aperiam incidunt velit commodi quibusdam alias, corporis iste minus distinctio suscipit voluptates rerum!</Col>
+                                                <Col className='col-2'>AAA-000</Col>
+                                                <Col className='col-3'>إسم المادة هنا</Col>
+                                                <Col className='col-2'>4 ساعات</Col>
+                                                <Col className='col-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ipsam sunt nemo! Autem, nobis placeat! Magni totam aperiam incidunt velit commodi quibusdam alias, corporis iste minus distinctio suscipit voluptates rerum!</Col>
                                             </Row>
                                             )
                                         }
@@ -92,10 +92,10 @@ function DepartmentInfo({}) {
                                             Array.from({length:5}).map((x,i)=>
 
                                             <Row className={`py-3 px-2 border-2 ${i<5-1 ? "border-bottom" : ""}`}>
-                                            <Col className='col-2'>AAA-000</Col>
-                                            <Col className='col-3'>إسم المادة هنا</Col>
-                                            <Col className='col-2'>4 ساعات</Col>
-                                            <Col className='col-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ipsam sunt nemo! Autem, nobis placeat! Magni totam aperiam incidunt velit commodi quibusdam alias, corporis iste minus distinctio suscipit voluptates rerum!</Col>
+                                                <Col className='col-2'>AAA-000</Col>
+                                                <Col className='col-3'>إسم المادة هنا</Col>
+                                                <Col className='col-2'>4 ساعات</Col>
+                                                <Col className='col-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ipsam sunt nemo! Autem, nobis placeat! Magni totam aperiam incidunt velit commodi quibusdam alias, corporis iste minus distinctio suscipit voluptates rerum!</Col>
                                             </Row>
                                             )
                                         }

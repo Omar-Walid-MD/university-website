@@ -2,12 +2,14 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 
 import Home from "../Pages/Home";
-import CollegeInfo from "../Pages/CollegeInfo";
+import FacultyInfo from "../Pages/FacultyInfo";
 import DepartmentInfo from "../Pages/DepartmentInfo";
 import Login from "../Pages/Auth/Login";
 import Main from "../Layout/Main";
 import Auth from "../Layout/Auth";
 import Apply from "../Pages/Auth/Apply";
+import Faculties from "../Pages/Faculties";
+import Student from "../Pages/Student";
 
 const router = createBrowserRouter([
     {
@@ -24,12 +26,21 @@ const router = createBrowserRouter([
                         element: <Home />
                     },
                     {
-                        path:"col/:colName",
-                        element: <CollegeInfo />
+                        path: "faculties",
+                        element: <Faculties />
+                    },
+                    {
+                        path:"faculty/:facultyName",
+                        element: <FacultyInfo />
                     },
                     {
                         path:"department/:departmentName",
                         element: <DepartmentInfo />
+                    },
+
+                    {
+                        path:"student",
+                        element: <Student />
                     }
                 ]
             },
