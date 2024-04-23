@@ -10,6 +10,8 @@ import Auth from "../Layout/Auth";
 import Apply from "../Pages/Auth/Apply";
 import Faculties from "../Pages/Faculties";
 import Student from "../Pages/Student";
+import StudentEvaluations from "../Pages/StudentEvaluations";
+import CourseSelection from "../Pages/CourseSelection";
 
 const router = createBrowserRouter([
     {
@@ -37,10 +39,17 @@ const router = createBrowserRouter([
                         path:"department/:departmentName",
                         element: <DepartmentInfo />
                     },
-
                     {
                         path:"student",
                         element: <Student />
+                    },
+                    {
+                        path:"student/evaluations",
+                        element: <StudentEvaluations />
+                    },
+                    {
+                        path:"course-selection",
+                        element: <CourseSelection />
                     }
                 ]
             },

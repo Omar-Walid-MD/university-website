@@ -94,15 +94,29 @@ function Home({}) {
                         
                         <Carousel.Item style={{marginBottom:100}}>
                             <div className='w-100 d-flex align-items-center justify-content-center m-0'>
-                                <Row className='g-5'>
-                                    <Col>
+                                <Row className='g-0'>
+                                    <Col className='col-5'>
                                         <div className='image-border p-2 w-100'>
                                             <img src={require(`../assets/img/home-news/${i}.jpg`)} className='w-100 rounded-2 border shadow border-3 border-black' alt="" />
                                         </div>
                                     </Col>
-                                    <Col className='px-5'>
-                                        <h1 className='mb-4'>{news.title}</h1>
-                                        <p className='fs-5 w-100'>{news.desc}</p>
+                                    <Col className='px-5 py-2'>
+                                        <div className='h-100 rounded-3 border border-2 border-black shadow p-3 d-flex flex-column justify-content-between'>
+                                            <div>
+                                                <h2 className='mb-4'>{news.title}</h2>
+                                                <p className='fs-5 w-100'>{news.desc}</p>
+                                            </div>
+                                            <div className='d-flex justify-content-between'>
+                                                <div className="d-flex gap-3">
+                                                    <h5 className='mb-0'>من يومين</h5>
+                                                    <h5 className='mb-0'>100 مشاهدات</h5>
+                                                </div>
+                                                <Button variant='transparent' as={Link} className='border-0 rounded-0 bg-white p-0 link text-start' to={"/faculty/default"}>
+                                                    اعرف المزيد
+                                                    <IoMdArrowDropleftCircle className='ms-2' size={25} />
+                                                </Button>
+                                            </div>
+                                        </div>
                                     </Col>
                                 </Row>
                             </div>
@@ -172,7 +186,7 @@ function Home({}) {
                     {
                         certificates.map((cert,i)=>
                         <Col className='col-12 col-md-6 col-lg-4 d-flex flex-column gap-3 align-items-center justify-content-center text-center'>
-                            <div className='d-flex align-items-center justify-content-between bg-white rounded-3 shadow p-3 overflow-hidden' style={{height:150,aspectRatio:1}}>
+                            <div className='d-flex align-items-center justify-content-between bg-white rounded-3 shadow p-3 border border-2 border-black overflow-hidden' style={{height:150,aspectRatio:1}}>
                                 <img src={require(`../assets/img/home-certificates/${cert.img}`)}
                                 className='h-100 w-100'
                                 alt="" />

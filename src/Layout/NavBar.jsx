@@ -14,6 +14,7 @@ function NavBar({}) {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
                     <Nav.Link to={"/"} as={Link}>الرئيسية</Nav.Link>
+                    <Nav.Link to={"/faculties"} as={Link}>الكليات</Nav.Link>
                 </Nav>
                 <Nav.Link to={"/login"} as={Link} className='d-flex align-items-center gap-1'>
                     تسجيل دخول الطلاب

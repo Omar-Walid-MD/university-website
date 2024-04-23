@@ -58,48 +58,51 @@ function DepartmentInfo({}) {
                                     <h4 className='w-100 text-center'>الفرقة {i+1}</h4>
                                 </Accordion.Header>
                                 <Accordion.Body>
-                                    <h4>الفصل الدراسي الأول</h4>
-                                    <hr />
-                                    <div className='mt-4 mb-5 border border-2 rounded-3 overflow-hidden'>
-                                        <Row className='bg-dark text-white p-2'>
-                                            <Col className='col-2'>كود المادة</Col>
-                                            <Col className='col-3'>إسم المادة</Col>
-                                            <Col className='col-2'>عدد ساعاتها</Col>
-                                            <Col className='col-5'>وصف المادة</Col>
-                                        </Row>
-                                        {
-                                            Array.from({length:5}).map((x,i)=>
+                                    <div className='w-100 d-flex gap-4'>
+                                        <div className='w-100'>
+                                            <h4>الفصل الدراسي الأول</h4>
+                                            <hr />
+                                            <div className='mt-4 mb-5 border border-2 rounded-3 overflow-hidden'>
+                                                <Row className='bg-dark text-white p-2'>
+                                                    <Col className='col-3'>كود المادة</Col>
+                                                    <Col className='col-6'>إسم المادة</Col>
+                                                    <Col className='col-3'>عدد ساعاتها</Col>
+                                                </Row>
+                                                {
+                                                    Array.from({length:5}).map((x,i)=>
 
-                                            <Row className={`py-3 px-2 border-2 ${i<5-1 ? "border-bottom" : ""}`}>
-                                                <Col className='col-2'>AAA-000</Col>
-                                                <Col className='col-3'>إسم المادة هنا</Col>
-                                                <Col className='col-2'>4 ساعات</Col>
-                                                <Col className='col-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ipsam sunt nemo! Autem, nobis placeat! Magni totam aperiam incidunt velit commodi quibusdam alias, corporis iste minus distinctio suscipit voluptates rerum!</Col>
-                                            </Row>
-                                            )
-                                        }
-                                    </div>
-                                    <h4>الفصل الدراسي الثاني</h4>
-                                    <hr />
-                                    <div className='mt-4 mb-5 border border-2 rounded-3 overflow-hidden'>
-                                        <Row className='bg-dark text-white p-2'>
-                                            <Col className='col-2'>كود المادة</Col>
-                                            <Col className='col-3'>إسم المادة</Col>
-                                            <Col className='col-2'>عدد ساعاتها</Col>
-                                            <Col className='col-5'>وصف المادة</Col>
-                                        </Row>
-                                        {
-                                            Array.from({length:5}).map((x,i)=>
+                                                    <Row className={`py-3 px-2 border-2 ${i<5-1 ? "border-bottom" : ""}`}>
+                                                        <Col className='col-3'>AAA-000</Col>
+                                                        <Col className='col-6'>إسم المادة هنا</Col>
+                                                        <Col className='col-3'>4 ساعات</Col>
+                                                    </Row>
+                                                    )
+                                                }
+                                            </div>
+                                        </div>
+                                        <div className='w-100'>
+                                            <h4>الفصل الدراسي الثاني</h4>
+                                            <hr />
+                                            <div className='mt-4 mb-5 border border-2 rounded-3 overflow-hidden'>
+                                                <Row className='bg-dark text-white p-2'>
+                                                    <Col className='col-3'>كود المادة</Col>
+                                                    <Col className='col-6'>إسم المادة</Col>
+                                                    <Col className='col-3'>عدد ساعاتها</Col>
+                                                </Row>
+                                                {
+                                                    Array.from({length:5}).map((x,i)=>
 
-                                            <Row className={`py-3 px-2 border-2 ${i<5-1 ? "border-bottom" : ""}`}>
-                                                <Col className='col-2'>AAA-000</Col>
-                                                <Col className='col-3'>إسم المادة هنا</Col>
-                                                <Col className='col-2'>4 ساعات</Col>
-                                                <Col className='col-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ipsam sunt nemo! Autem, nobis placeat! Magni totam aperiam incidunt velit commodi quibusdam alias, corporis iste minus distinctio suscipit voluptates rerum!</Col>
-                                            </Row>
-                                            )
-                                        }
+                                                    <Row className={`py-3 px-2 border-2 ${i<5-1 ? "border-bottom" : ""}`}>
+                                                        <Col className='col-3'>AAA-000</Col>
+                                                        <Col className='col-6'>إسم المادة هنا</Col>
+                                                        <Col className='col-3'>4 ساعات</Col>
+                                                    </Row>
+                                                    )
+                                                }
+                                            </div>
+                                        </div>
                                     </div>
+                                    
                                 </Accordion.Body>
                             </Accordion.Item>
                             )

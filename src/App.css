@@ -199,3 +199,17 @@
   filter: blur(0.75rem);
   z-index: -1;
 }
+
+
+.apply-form-header
+{
+  width: 120px;
+  background-color: gray;
+  transition: background-color 0.2s ease-out, scale 0.2s ease-out;
+}
+.apply-form-header.active
+{
+  width: 200px;
+  background-color: var(--bs-primary);
+  scale: 1.15;
+}
