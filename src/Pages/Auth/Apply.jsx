@@ -8,11 +8,11 @@ import { useForm } from 'react-hook-form';
 function Apply({}) {
 
     const [formIndex,setFormIndex] = useState(0);
-    const formHeaders = ["المعلومات الشخصية","المعلومات الأكاديمية","معلومات إضافية"];
+    const formHeaders = ["المعلومات الشخصية","معلومات ولي الأمر"];
 
     function nextFormIndex()
     {
-        if(formIndex < 2) setFormIndex(x => x+1)
+        if(formIndex < formHeaders.length-1) setFormIndex(x => x+1)
     }
 
     function prevFormIndex()
@@ -44,7 +44,7 @@ function Apply({}) {
                             label="الإسم كاملا"
                             className="w-100"
                             >
-                                <Form.Control placeholder="name@example.com" />
+                                <Form.Control placeholder="" />
                             </FloatingLabel>
 
                             <div className='w-100 d-flex gap-5'>
@@ -68,13 +68,25 @@ function Apply({}) {
                                 </div>
                             </div>
 
-                            <FloatingLabel
-                            controlId="floatingInput"
-                            label="الرقم القومي"
-                            className="w-100"
-                            >
-                                <Form.Control placeholder="name@example.com" />
-                            </FloatingLabel>
+                            <div className='w-100 d-flex gap-5'>
+
+                                <FloatingLabel
+                                controlId="floatingInput"
+                                label="الرقم القومي"
+                                className="w-100"
+                                >
+                                    <Form.Control placeholder="" />
+                                </FloatingLabel>
+
+                                <FloatingLabel
+                                controlId="floatingInput"
+                                label="العنوان"
+                                className="w-100"
+                                >
+                                    <Form.Control placeholder="" />
+                                </FloatingLabel>
+
+                            </div>
 
                             
 
@@ -85,7 +97,7 @@ function Apply({}) {
                                 label="رقم الهاتف"
                                 className="w-100"
                                 >
-                                    <Form.Control placeholder="name@example.com" />
+                                    <Form.Control placeholder="" />
                                 </FloatingLabel>
 
                                 <FloatingLabel
@@ -93,98 +105,95 @@ function Apply({}) {
                                 label="رقم الهاتف الإحتياطي"
                                 className="w-100"
                                 >
-                                    <Form.Control placeholder="name@example.com" />
+                                    <Form.Control placeholder="" />
                                 </FloatingLabel>
 
                             </div>
 
                             <FloatingLabel
                             controlId="floatingInput"
-                            label="البريد الألكتروني"
+                            label="البريد الإلكتروني"
                             className="w-100"
                             >
-                                <Form.Control placeholder="name@example.com" />
+                                <Form.Control placeholder="" />
                             </FloatingLabel>
 
                         </Form>
                     </Carousel.Item>
+                    
                     <Carousel.Item className='bg-white'>
                         <Form className="d-flex flex-column w-100 gap-3">
 
                             <FloatingLabel
                             controlId="floatingInput"
-                            label="الإسم  المدرسة الثانوية كاملا"
+                            label="إسم ولي الأمر كاملا"
                             className="w-100"
                             >
-                                <Form.Control placeholder="name@example.com" />
+                                <Form.Control placeholder="" />
                             </FloatingLabel>
 
                             <div className='w-100 d-flex gap-5'>
-                                <FloatingLabel className='w-50' controlId="floatingDateOfBirth" label="تاريخ التخرج">
+                                <FloatingLabel className='w-50' controlId="floatingDateOfBirth" label="تاريخ الميلاد">
                                     <Form.Control type="date" placeholder="Date of Birth" />
+                                </FloatingLabel>
+                                <div>
+                                    <p className='mb-2 text-black-50'>النوع:</p>
+                                    <div className='d-flex gap-3'>
+                                        <Form.Check
+                                            type="radio"
+                                            label="ذكر"
+                                            name="gender-radio"
+                                        />
+                                        <Form.Check
+                                            type="radio"
+                                            label="أنثى"
+                                            name="gender-radio"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className='w-100 d-flex gap-5'>
+
+                                <FloatingLabel
+                                controlId="floatingInput"
+                                label="الرقم القومي لولي الأمر"
+                                className="w-100"
+                                >
+                                    <Form.Control placeholder="" />
                                 </FloatingLabel>
 
                                 <FloatingLabel
                                 controlId="floatingInput"
-                                label="المعدل التراكمي"
-                                className="w-50"
+                                label="عنوان ولي الأمر"
+                                className="w-100"
                                 >
-                                    <Form.Control type="number" placeholder="name@example.com" />
+                                    <Form.Control placeholder="" />
                                 </FloatingLabel>
-                                
+
                             </div>
 
+                            
                             <FloatingLabel
                             controlId="floatingInput"
-                            label="إسم الدبلوما"
+                            label="رقم هاتف ولي الأمر"
                             className="w-100"
                             >
-                                <Form.Control placeholder="name@example.com" />
+                                <Form.Control placeholder="" />
                             </FloatingLabel>
 
-                            
-
-                            
+                               
+                            <FloatingLabel
+                            controlId="floatingInput"
+                            label="البريد الإلكتروني لولي الأمر"
+                            className="w-100"
+                            >
+                                <Form.Control placeholder="" />
+                            </FloatingLabel>
 
                         </Form>
                     </Carousel.Item>
-                    <Carousel.Item className='bg-white'>
-                        <Form className="d-flex flex-column w-100 gap-3">
 
-                            <FloatingLabel
-                            controlId="floatingInput"
-                            label="الإسم  المدرسة الثانوية كاملا"
-                            className="w-100"
-                            >
-                                <Form.Control placeholder="name@example.com" />
-                            </FloatingLabel>
-
-                            <div className='w-100 d-flex gap-5'>
-                                <FloatingLabel className='w-50' controlId="floatingDateOfBirth" label="تاريخ التخرج">
-                                    <Form.Control type="date" placeholder="Date of Birth" />
-                                </FloatingLabel>
-
-                                <FloatingLabel
-                                controlId="floatingInput"
-                                label="المعدل التراكمي"
-                                className="w-50"
-                                >
-                                    <Form.Control type="number" placeholder="name@example.com" />
-                                </FloatingLabel>
-                                
-                            </div>
-
-                            <FloatingLabel
-                            controlId="floatingInput"
-                            label="إسم الدبلوما"
-                            className="w-100"
-                            >
-                                <Form.Control placeholder="name@example.com" />
-                            </FloatingLabel>
-                            
-
-                        </Form>
-                    </Carousel.Item>
                 </Carousel>
                 <div className='w-100 p-4 pt-2 mt-3'>
                     {
@@ -193,7 +202,7 @@ function Apply({}) {
                     }
                     <Button className='w-100 fs-5' onClick={nextFormIndex}>
                     {
-                        formIndex===2 ? "تسليم طلب الإلتحاق" : "التالي"
+                        formIndex == formHeaders.length-1 ? "تسليم طلب الإلتحاق" : "التالي"
                     }
                     </Button>
                 </div>

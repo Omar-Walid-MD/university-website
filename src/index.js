@@ -7,12 +7,16 @@ import reportWebVitals from './reportWebVitals';
 import router from './Router/router';
 import { RouterProvider } from 'react-router';
 import { ThemeProvider } from 'react-bootstrap';
+import { Provider } from 'react-redux';
+import store from './Store/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ThemeProvider dir="rtl">
-      <RouterProvider router={router} />
+      <Provider store={store}>
+        <RouterProvider router={router} />
+      </Provider>
     </ThemeProvider>
   </React.StrictMode>
 );

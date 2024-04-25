@@ -12,6 +12,8 @@ import Faculties from "../Pages/Faculties";
 import Student from "../Pages/Student";
 import StudentEvaluations from "../Pages/StudentEvaluations";
 import CourseSelection from "../Pages/CourseSelection";
+import Dashboard from "../Pages/Admin/Dashboard";
+import AdminStudents from "../Pages/Admin/AdminStudents";
 
 const router = createBrowserRouter([
     {
@@ -50,6 +52,14 @@ const router = createBrowserRouter([
                     {
                         path:"course-selection",
                         element: <CourseSelection />
+                    },
+                    {
+                        path: "dashboard",
+                        element: <Dashboard />,
+                    },
+                    {
+                        path: "dashboard/students",
+                        element: <AdminStudents />
                     }
                 ]
             },

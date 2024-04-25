@@ -203,13 +203,70 @@
 
 .apply-form-header
 {
-  width: 120px;
   background-color: gray;
   transition: background-color 0.2s ease-out, scale 0.2s ease-out;
 }
 .apply-form-header.active
 {
-  width: 200px;
   background-color: var(--bs-primary);
   scale: 1.15;
+}
+
+.navbar-dropdown-button
+{
+  cursor: pointer;
+}
+.navbar-dropdown-container
+{
+  /* width: min(10rem,20vw); */
+  pointer-events: none;
+  padding-top: 0.5rem;
+  top: calc(100% - 0.5rem);
+}
+.navbar-dropdown-container.left
+{
+  left: 100%; top: 0;
+  padding-top: 0;
+}
+
+.navbar-dropdown-menu:where(:hover) > .navbar-dropdown-container > .navbar-dropdown
+{
+  transform: translateY(0);
+  pointer-events: auto;
+  /* transform: scaleY(1); */
+  opacity: 1;
+}
+.navbar-dropdown-menu:where(:hover) > .navbar-dropdown-container
+{
+  pointer-events: auto;
+}
+.navbar-dropdown-container > .navbar-dropdown
+{
+  /* max-height: 0; */
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-1em);
+  /* transform: scaleY(0); */
+  transform-origin: top;
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+  top: 100%;
+
+}
+.navbar-dropdown > *
+{
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
+}
+.navbar-dropdown > *:hover
+{
+  background-color: var(--bs-light) !important;
+}
+
+.info-modal > .modal-dialog
+{
+  max-width: min(900px, calc(100% - 50px)) !important;
+}
+.info-modal 
+{
+  max-width: 100% !important;
 }

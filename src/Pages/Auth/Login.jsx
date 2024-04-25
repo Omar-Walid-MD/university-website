@@ -11,7 +11,19 @@ function Login({}) {
                 <div className='gap-4 d-flex flex-column align-items-center p-4 w-50'>
                     <img src={require("../../assets/img/logo.png")} style={{width:150}} className='rounded-4 shadow border border-2 border-black' />
                     
-                    <h3>تسجيل دخول الطالب</h3>
+                    <h3>تسجيل دخول</h3>
+                    <div className='d-flex gap-3'>
+                        <Form.Check
+                            type="radio"
+                            label="طالب"
+                            name="login-radio"
+                        />
+                        <Form.Check
+                            type="radio"
+                            label="مدير"
+                            name="login-radio"
+                        />
+                    </div>
                     <div className='w-100 d-flex flex-column align-items-center gap-3'>
                         <FloatingLabel
                             controlId="floatingInput"
