@@ -3,13 +3,18 @@ import {Navbar, Nav, Container, Button} from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import { IoMdLogIn } from "react-icons/io";
 import { FaUser } from "react-icons/fa";
+import { useDispatch, useSelector } from 'react-redux';
+import { logOut } from '../Store/Slice/auth';
 
 
 
 function NavBar({}) {
 
-    const [loggedIn,setLoggedIn] = useState(true);
-    const [loginType,setLoginType] = useState("admin");
+    const dispatch = useDispatch();
+
+    const loginID = useSelector(store => store.auth.loginID);
+    const loggedIn = useSelector(store => store.auth.loggedIn);
+
 
 
     return (
@@ -28,7 +33,7 @@ function NavBar({}) {
                     <div className="position-absolute navbar-dropdown-container">
                         <div className="bg-white shadow navbar-dropdown overflow-hidden">
                         {
-                            loginType==="student" ?
+                            loginID!=="admin" ?
                             <>
                                 <Link to={"/student"} className='px-4 py-2 border-bottom d-flex justify-content-center text-decoration-none'>ملف الطالب</Link>
                                 <Link to={"/student/evaluations"} className='px-4 py-2 border-bottom d-flex justify-content-center text-decoration-none'>التقديرات</Link>
@@ -40,7 +45,7 @@ function NavBar({}) {
                             </>
                         }
                             <div className='px-4 py-2 d-flex justify-content-center'>
-                                <Button variant='danger' onClick={()=>{}}>تسجيل الخروج</Button>
+                                <Button variant='danger' onClick={()=>{dispatch(logOut())}}>تسجيل الخروج</Button>
                             </div>
                         </div>
                     </div>

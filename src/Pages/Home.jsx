@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Carousel, Col, Container, Row } from 'react-bootstrap';
 import { FaUsers } from "react-icons/fa";
 import { IoMdArrowDropleftCircle } from "react-icons/io";
 import { Link } from 'react-router-dom';
+import { performQuery } from '../helpers';
 
 function Home({}) {
 
@@ -30,7 +31,7 @@ function Home({}) {
         
     ]
 
-    const faculties = [
+    const facultiesPlaceholder = [
         {
             name: "الطب",
             img: "medicine"
@@ -72,6 +73,14 @@ function Home({}) {
         }
     ]
 
+    const [faculties,setFaculties] = useState([]);
+      
+
+    useEffect(()=>{
+        async function getFaculties(){setFaculties(await performQuery("faculties",`LIMIT 6`));}
+        getFaculties();
+    },[]);
+
 
     return (
         <div>
@@ -92,7 +101,7 @@ function Home({}) {
                     {
                         newsSample.map((news,i)=>
                         
-                        <Carousel.Item style={{marginBottom:100}}>
+                        <Carousel.Item style={{marginBottom:100}} key={`news-${i}`}>
                             <div className='w-100 d-flex align-items-center justify-content-center m-0'>
                                 <Row className='g-0'>
                                     <Col className='col-5'>
@@ -145,15 +154,15 @@ function Home({}) {
                     <h1 className='pb-3 border-bottom border-4 border-black'>الكليات</h1>
                     <Row className='g-5'>
                     {
-                        faculties.map((fac)=>
-                        <Col className='col-12 col-lg-6'>
+                        faculties.map((fac,i)=>
+                        <Col className='col-12 col-lg-6' key={`fac-${i}`} >
                             <div className='w-100 border border-2 border-black rounded-2 d-flex flex-column shadow overflow-hidden'
                             style={{height:250}}
                             >
                                 <div className='home-fac-bg w-100 h-100 d-flex align-items-center justify-content-center'
-                                style={{backgroundImage: `url(${require(`../assets/img/faculties/${fac.img}.jpg`)}`}}
+                                // style={{backgroundImage: `url(${require(`../assets/img/faculties/${fac.img}.jpg`)}`}}
                                 >
-                                    <h3 className='text-white'>كلية {fac.name}</h3>
+                                    <h3 className='text-white'>{fac.Faculty_Name}</h3>
                                 </div>
                                 <Button variant='transparent' as={Link} className='border-0 rounded-0 bg-white p-2 link w-100 text-start' to={"/faculty/default"}>
                                     اعرف المزيد
@@ -185,7 +194,7 @@ function Home({}) {
                     <Row className='w-100 g-5 d-flex justify-content-center'>
                     {
                         certificates.map((cert,i)=>
-                        <Col className='col-12 col-md-6 col-lg-4 d-flex flex-column gap-3 align-items-center justify-content-center text-center'>
+                        <Col className='col-12 col-md-6 col-lg-4 d-flex flex-column gap-3 align-items-center justify-content-center text-center' key={`cer-${i}`}>
                             <div className='d-flex align-items-center justify-content-between bg-white rounded-3 shadow p-3 border border-2 border-black overflow-hidden' style={{height:150,aspectRatio:1}}>
                                 <img src={require(`../assets/img/home-certificates/${cert.img}`)}
                                 className='h-100 w-100'

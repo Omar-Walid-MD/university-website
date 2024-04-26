@@ -1,5 +1,6 @@
 const express = require('express');
 const mysql = require('mysql2');
+const cors = require("cors");
 
 const app = express();
 
@@ -18,9 +19,12 @@ db.connect((err) => {
   console.log('Connected to database!');
 });
 
+app.use(express.json());
+app.use(cors());
+
 
 app.get('/students', (req, res) => {
-  const query = 'SELECT * FROM students';
+  const query = 'SELECT * FROM students ' + req.query.condition;
   db.query(query, (err, data) => {
     if (err) {
       console.error('Error fetching students:', err);
@@ -31,10 +35,19 @@ app.get('/students', (req, res) => {
 });
 
 
-
+app.get('/faculties', (req, res) => {
+  const query = 'SELECT * FROM Faculties ' + req.query.condition;
+  db.query(query, (err, data) => {
+    if (err) {
+      console.error('Error fetching faculties:', err);
+      return res.status(500).json({ error: 'Failed to retrieve faculties' });
+    }
+    res.json(data);
+  });
+});
 
 app.get('/departments', (req, res) => {
-  const query = 'SELECT * FROM departments';
+  const query = 'SELECT * FROM Departments ' + req.query.condition;
   db.query(query, (err, data) => {
     if (err) {
       console.error('Error fetching departments:', err);
@@ -50,7 +63,7 @@ app.get('/departments', (req, res) => {
 
 
 app.get('/professors', (req, res) => {
- const query = 'SELECT * FROM professors';
+  const query = 'SELECT * FROM Professors ' + req.query.condition;
   db.query(query, (err, data) => {
     if (err) {
       console.error('Error fetching professors:', err);
@@ -63,7 +76,7 @@ app.get('/professors', (req, res) => {
 
 
 app.get('/courses', (req, res) => {
-  const query = 'SELECT * FROM courses';
+  const query = 'SELECT * FROM Courses ' + req.query.condition;
   db.query(query, (err, data) => {
     if (err) {
       console.error('Error fetching courses:', err);
@@ -75,7 +88,7 @@ app.get('/courses', (req, res) => {
   
 
 app.get('/sections', (req, res) => {
-  const query = 'SELECT * FROM sections';
+  const query = 'SELECT * FROM Sections ' + req.query.condition;
   db.query(query, (err, data) => {
     if (err) {
       console.error('Error fetching sections:', err);
@@ -85,7 +98,16 @@ app.get('/sections', (req, res) => {
   });
 });
 
-
+app.get('/login', (req, res) => {
+  const query = 'SELECT * FROM login ' + req.query.condition;
+  db.query(query, (err, data) => {
+    if (err) {
+      console.error('Error fetching login:', err);
+      return res.status(500).json({ error: 'Failed to retrieve login' });
+    }
+    res.json(data);
+  });
+});
 
 app.listen(8000, () => {
   console.log('Server listening on port 8000');
