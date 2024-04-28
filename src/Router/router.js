@@ -14,6 +14,8 @@ import StudentEvaluations from "../Pages/StudentEvaluations";
 import CourseSelection from "../Pages/CourseSelection";
 import Dashboard from "../Pages/Admin/Dashboard";
 import AdminStudents from "../Pages/Admin/AdminStudents";
+import AdminProfessors from "../Pages/Admin/AdminProfessors";
+import AdminCourses from "../Pages/Admin/AdminCourses";
 
 const router = createBrowserRouter([
     {
@@ -34,11 +36,11 @@ const router = createBrowserRouter([
                         element: <Faculties />
                     },
                     {
-                        path:"faculty/:facultyName",
+                        path:"faculty/:facultyID",
                         element: <FacultyInfo />
                     },
                     {
-                        path:"department/:departmentName",
+                        path:"department/:departmentID",
                         element: <DepartmentInfo />
                     },
                     {
@@ -60,6 +62,14 @@ const router = createBrowserRouter([
                     {
                         path: "dashboard/students",
                         element: <AdminStudents />
+                    },
+                    {
+                        path: "dashboard/professors",
+                        element: <AdminProfessors />
+                    },
+                    {
+                        path: "dashboard/courses",
+                        element: <AdminCourses />
                     }
                 ]
             },

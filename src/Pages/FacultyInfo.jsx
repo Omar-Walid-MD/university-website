@@ -1,19 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Carousel, Col, Container, Row, Accordion } from 'react-bootstrap';
 import { FaUsers } from "react-icons/fa";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import { IoMdArrowDropleftCircle } from 'react-icons/io';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
+import { performQuery } from '../helpers';
 
 function FacultyInfo({}) {
+
+    const {facultyID} = useParams();
+    const [faculty,SetFaculty] = useState();
+    const [departments,setDepartments] = useState([]);
+      
+    useEffect(()=>{
+        async function getFaculty(){SetFaculty((await performQuery("faculties",`WHERE Faculty_ID = "${facultyID}"`))[0]);}
+        getFaculty();
+
+        async function getDepartments(){setDepartments(await performQuery("departments",`WHERE Faculty_ID = "${facultyID}"`));}
+        getDepartments();
+    },[]);
+
+
     return (
         <div>
             <header className='home-header w-100 bg-dark text-white p-5 d-flex align-items-center justify-content-between'>
                 <Container className='d-flex h-100'>
+                {
+                    faculty &&
                     <div>
-                        <h1 className='mb-4'>عنوان الكلية</h1>
+                        <h1 className='mb-4'>{faculty.Faculty_Name}</h1>
                         <p className='fs-5'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, ratione. Laudantium fugit aspernatur dignissimos porro maiores ex ratione, maxime praesentium nemo, reprehenderit magnam deleniti voluptatem, dolorum sapiente harum earum facilis.</p>
                     </div>
+                }
                 </Container>
             </header>
             <section className='p-5'>
@@ -48,11 +66,11 @@ function FacultyInfo({}) {
                         <h2 className='text-center mb-5'>الأقسام العلمية</h2>
                         <Row>
                         {
-                            Array.from({length:8}).map((x,i)=>
+                            departments.map((department,i)=>
                             <Col className='col-6'>
                                 <div className='mb-3 border border-1 border-dark rounded-3 shadow text-center overflow-hidden' eventKey={`${i}`}>
                                     <div className='p-4'>
-                                        <h4 className='w-100'>القسم {i}</h4>
+                                        <h4 className='w-100'>{department.Department_Name}</h4>
                                         <p className='fs-5'>
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                                         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
@@ -60,7 +78,7 @@ function FacultyInfo({}) {
                                         aliquip ex ea commodo consequat.
                                         </p>
                                     </div>
-                                    <Button variant='transparent' as={Link} className='border-0 rounded-0 bg-white p-2 link w-100 text-start' to={"/department/default"}>
+                                    <Button variant='transparent' as={Link} className='border-0 rounded-0 bg-white p-2 link w-100 text-start' to={`/department/${department.Department_ID}`}>
                                         اعرف المزيد
                                         <IoMdArrowDropleftCircle className='ms-2' size={25} />
                                     </Button>

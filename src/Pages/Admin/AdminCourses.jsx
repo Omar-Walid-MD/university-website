@@ -4,12 +4,11 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { performQuery } from '../../helpers';
 import { Link } from 'react-router-dom';
 
-function AdminStudents({}) {
+function AdminCourses({}) {
 
     const [faculties,setFaculties] = useState([]);
     const [departments,setDepartments] = useState([]);
-    const [students,setStudents] = useState([]);
-
+    const [courses,setCourses] = useState([]);
 
     const [studentModal, setStudentModal] = useState(false);
 
@@ -19,8 +18,7 @@ function AdminStudents({}) {
 
     const [filters,setFilters] = useState({
         fac: "",
-        dep: "",
-        level: null
+        dep: ""
     })
 
     function handleFilters(prop,value)
@@ -42,12 +40,13 @@ function AdminStudents({}) {
             getDepartments();
         }
 
-        if(filters.fac && filters.dep && filters.level)
+        if(filters.fac && filters.dep)
         {
-            async function getStudents(){setDepartments(await performQuery("students",
-            `WHERE Department_ID = "${filters.dep}" AND LEVEL = ${filters.level}`));}
-            getStudents();
-            console.log(students);
+            async function getCourses(){setCourses(await performQuery("courses",
+            `JOIN Department_Courses ON Courses.Course_ID = Department_Courses.Course_ID
+            WHERE Department_ID = "${filters.dep}"`));}
+            getCourses();
+            console.log(courses);
         }
 
     },[filters]);
@@ -94,22 +93,6 @@ function AdminStudents({}) {
                             onClick={()=>handleFilters("dep",dep.Department_ID)}
                             >
                                 <h4>{dep.Department_Name}</h4>
-                            </Button>
-                        )
-                        }
-                        </div>
-                    </>
-                    : filters.level===null ?
-                    <>
-                        <h3 className='mb-2'>اختيار المستوى</h3>
-                        <div className='w-100 d-flex flex-column gap-3'>
-                        {
-                            Array.from({length:5}).map((x,i)=>
-                            <Button variant='transparent'
-                            className='w-100 border border-3 rounded-3 p-3'
-                            onClick={()=>handleFilters("level",i)}
-                            >
-                                <h4>اختيار المستوى</h4>
                             </Button>
                         )
                         }
@@ -260,4 +243,4 @@ function AdminStudents({}) {
     );
 }
 
-export default AdminStudents;
+export default AdminCourses;

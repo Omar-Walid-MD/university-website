@@ -34,6 +34,62 @@ app.get('/students', (req, res) => {
   });
 });
 
+app.post('/students', (req, res) => {
+
+  const s = req.body;
+  const value = [
+    s.Student_ID,
+    s.Name,
+    s.date_of_birth,
+    s.national_ID,
+    s.Mobile_No, 
+    s.Extra_Mobile_No,
+    s.Email,
+    s.Address,
+    s.Gender,
+    s.Parent_ID,
+    s.Department_ID,
+    "S01",
+    s.Level,
+    s.GPA,
+    2023
+  ];
+
+  const query = 'INSERT INTO students VALUES (?)';
+  db.query(query,[value], (err, data) => {
+    if (err) {
+      console.error('Error fetching students:', err);
+      return res.status(500).json({ error: 'Failed to retrieve students' });
+    }
+    res.json(data);
+  });
+});
+
+app.get('/parents', (req, res) => {
+  const query = 'SELECT * FROM parents ' + req.query.condition;
+  db.query(query, (err, data) => {
+    if (err) {
+      console.error('Error fetching parents:', err);
+      return res.status(500).json({ error: 'Failed to retrieve parents' });
+    }
+    res.json(data);
+  });
+});
+
+app.post('/parents', (req, res) => {
+
+  const p = req.body;
+  const value = [p.Parent_ID,p.Name,p.Date_Of_Birth,p.National_ID,p.Mobile_No,p.Email,p.Address,p.Gender];
+
+  const query = 'INSERT INTO parents VALUES (?)';
+  db.query(query,[value], (err, data) => {
+    if (err) {
+      console.error('Error fetching parents:', err);
+      return res.status(500).json({ error: 'Failed to retrieve parents' });
+    }
+    res.json(data);
+  });
+});
 
 app.get('/faculties', (req, res) => {
   const query = 'SELECT * FROM Faculties ' + req.query.condition;
@@ -81,6 +137,18 @@ app.get('/courses', (req, res) => {
     if (err) {
       console.error('Error fetching courses:', err);
       return res.status(500).json({ error: 'Failed to retrieve courses' });
+    }
+    res.json(data);
+  });
+});
+
+
+app.get('/department-courses', (req, res) => {
+  const query = 'SELECT * FROM Department_Courses ' + req.query.condition;
+  db.query(query, (err, data) => {
+    if (err) {
+      console.error('Error fetching Department Courses:', err);
+      return res.status(500).json({ error: 'Failed to retrieve Department Courses' });
     }
     res.json(data);
   });

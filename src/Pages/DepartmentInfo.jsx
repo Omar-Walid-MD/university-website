@@ -1,20 +1,55 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Carousel, Col, Container, Row, Accordion } from 'react-bootstrap';
 import { FaUsers } from "react-icons/fa";
 import { FaChalkboardTeacher } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { performQuery } from '../helpers';
 
 function DepartmentInfo({}) {
+
+    const {departmentID} = useParams();
+
+    const [faculty,SetFaculty] = useState();
+    const [department,setDepartment] = useState([]);
+    const [courses,setCourses] = useState([]);
+
+      
+    useEffect(()=>{
+        async function getDepartment(){setDepartment((await performQuery("departments",`WHERE Department_ID = "${departmentID}"`))[0]);}
+        getDepartment();
+
+
+        // async function getCourses()
+        // {
+        //     setCourses(await performQuery("department-courses"));
+        // }
+        // getCourses();
+    },[]);
+
+    useEffect(()=>{
+        if(department)
+        {
+            async function getFaculty(){SetFaculty((await performQuery("faculties",`WHERE Faculty_ID = "${department.Faculty_ID}"`))[0]);}
+            getFaculty();
+        }
+    },[department])
+    
+    console.log(faculty);
+    console.log(department);
+
     return (
         <div>
             <header className='home-header w-100 bg-dark text-white p-5 d-flex align-items-center justify-content-between'>
-                <Container className='d-flex h-100'>
-                    <div>
-                        <h4 className='mb-3 text-white-50'>اسم الكلية</h4>
-                        <h1 className='mb-4'>عنوان القسم العلمي</h1>
-                        <p className='fs-5 mb-5'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, ratione. Laudantium fugit aspernatur dignissimos porro maiores ex ratione, maxime praesentium nemo, reprehenderit magnam deleniti voluptatem, dolorum sapiente harum earum facilis.</p>
-                        <Link className='link text-white-50' to={"/faculty/default"}>الرجوع الى الكليات</Link>
-                    </div>
+                <Container className='d-flex h-100'> 
+                    {
+                        department && faculty &&
+                        <div>
+                            <h4 className='mb-3 text-white-50'>{faculty.Faculty_Name}</h4>
+                            <h1 className='mb-4'>{department.Department_Name}</h1>
+                            <p className='fs-5 mb-5'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae, ratione. Laudantium fugit aspernatur dignissimos porro maiores ex ratione, maxime praesentium nemo, reprehenderit magnam deleniti voluptatem, dolorum sapiente harum earum facilis.</p>
+                            <Link className='link text-white-50' to={`/faculty/${faculty.Faculty_ID}`}>الرجوع الى الكليات</Link>
+                        </div>
+                    }
                 </Container>
             </header>
             <section className='p-5'>

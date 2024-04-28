@@ -20,7 +20,7 @@ function Dashboard({}) {
                     </Col>
 
                     <Col className='col-6'>
-                        <Link className='d-flex hover-scale link flex-column align-items-center border border-2 shadow rounded-3 p-4'>
+                        <Link to={"courses"} className='d-flex hover-scale link flex-column align-items-center border border-2 shadow rounded-3 p-4'>
                             <ImBooks size={70} />
                             <h3>المقررات الدراسية</h3>
                         </Link>
@@ -34,7 +34,7 @@ function Dashboard({}) {
                     </Col>
 
                     <Col className='col-6'>
-                        <Link className='d-flex hover-scale link flex-column align-items-center border border-2 shadow rounded-3 p-4'>
+                        <Link to={"professors"} className='d-flex hover-scale link flex-column align-items-center border border-2 shadow rounded-3 p-4'>
                             <FaChalkboardTeacher size={70} />
                             <h3>الأساتذة</h3>
                         </Link>

@@ -75,7 +75,6 @@ function Home({}) {
 
     const [faculties,setFaculties] = useState([]);
       
-
     useEffect(()=>{
         async function getFaculties(){setFaculties(await performQuery("faculties",`LIMIT 6`));}
         getFaculties();
@@ -164,7 +163,7 @@ function Home({}) {
                                 >
                                     <h3 className='text-white'>{fac.Faculty_Name}</h3>
                                 </div>
-                                <Button variant='transparent' as={Link} className='border-0 rounded-0 bg-white p-2 link w-100 text-start' to={"/faculty/default"}>
+                                <Button variant='transparent' as={Link} className='border-0 rounded-0 bg-white p-2 link w-100 text-start' to={`/faculty/${fac.Faculty_ID}`}>
                                     اعرف المزيد
                                     <IoMdArrowDropleftCircle className='ms-2' size={25} />
                                 </Button>
