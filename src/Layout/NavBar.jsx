@@ -50,7 +50,7 @@ function NavBar({}) {
                 loggedIn ?
                 <>
                     <span className='fw-bold'>
-                        {loginName}
+                        {loginName}مرحبا, مدير
                     </span>
                     <div className='rounded-circle d-flex align-items-center justify-content-center border border-2 shadow p-2 w-auto navbar-dropdown-menu'>
                         <FaUser size={20} />

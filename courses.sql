@@ -1,35 +1,33 @@
 INSERT INTO Departments (Department_ID, Faculty_ID, Department_Name)
 VALUES
--- ('ENG-COM', 'ENG', 'قسم علوم الكمبيوتر'),
--- ('ENG-ECE', 'ENG', 'قسم الهندسة الكهربائية والحاسوبية'),
--- ('ENG-ME', 'ENG', 'قسم الهندسة الميكانيكية'),
--- ('ENG-CE', 'ENG', 'قسم الهندسة المدنية'),
--- ('ENG-CHE', 'ENG', 'قسم الهندسة الكيميائية'),
--- ('SCI-MATH', 'SCI', 'قسم الرياضيات والإحصاء'),
--- ('SCI-PHY', 'SCI', 'قسم الفيزياء وعلم الفلك'),
--- ('SCI-CHEM', 'SCI', 'قسم الكيمياء'),
--- ('SCI-BIO', 'SCI', 'قسم الأحياء'),
--- ('BUS-ACC', 'BUS', 'قسم المحاسبة والتمويل'),
--- ('BUS-MGT', 'BUS', 'قسم إدارة الأعمال'),
--- ('BUS-MKT', 'BUS', 'قسم التسويق'),
--- ('ART-ENG', 'ART', 'قسم اللغة الإنجليزية'),
--- ('ART-ARB', 'ART', 'قسم اللغة العربية'),
--- ('ART-LANG', 'ART', 'قسم اللغات الحديثة والأدب'),
--- ('ART-HIST', 'ART', 'قسم التاريخ'),
--- ('EDU-PSY', 'EDU', 'قسم علم النفس التربوي'),
--- ('EDU-CURR', 'EDU', 'قسم المناهج وطرق التدريس'),
--- ('EDU-LEAD', 'EDU', 'قسم القيادة التربوية والسياسات'),
--- ('LAW-CIV', 'LAW', 'قسم القانون العام'),
--- ('LAW-INT', 'LAW', 'قسم القانون الدولي'),
--- ('MED-MED', 'MED', 'قسم الطب'),
--- ('MED-SURG', 'MED', 'قسم الجراحة'),
--- ('MED-PHARM', 'MED', 'قسم الصيدلة'),
--- ('ENV-SCI', 'ENV', 'قسم علوم البيئة'),
--- ('ENV-GEO', 'ENV', 'قسم الجغرافيا'),
--- ('ENV-PLAN', 'ENV', 'قسم التخطيط العمراني'),
--- ('KIN-KIN', 'KIN', 'قسم علوم الحركة'),
-('KIN-PE', 'KIN', 'قسم التربية البدنية'),
-('KIN-ATH', 'KIN', 'قسم العلاج الرياضي');
+('ENG-COM', 'ENG', 'قسم علوم الكمبيوتر'),
+('ENG-ECE', 'ENG', 'قسم الهندسة الكهربائية والحاسوبية'),
+('ENG-ME', 'ENG', 'قسم الهندسة الميكانيكية'),
+('ENG-CE', 'ENG', 'قسم الهندسة المدنية'),
+('ENG-CHE', 'ENG', 'قسم الهندسة الكيميائية'),
+('SCI-MATH', 'SCI', 'قسم الرياضيات والإحصاء'),
+('SCI-PHY', 'SCI', 'قسم الفيزياء وعلم الفلك'),
+('SCI-CHEM', 'SCI', 'قسم الكيمياء'),
+('SCI-BIO', 'SCI', 'قسم الأحياء'),
+('BUS-ACC', 'BUS', 'قسم المحاسبة والتمويل'),
+('BUS-MGT', 'BUS', 'قسم إدارة الأعمال'),
+('BUS-MKT', 'BUS', 'قسم التسويق'),
+('ART-ENG', 'ART', 'قسم اللغة الإنجليزية'),
+('ART-ARB', 'ART', 'قسم اللغة العربية'),
+('ART-LANG', 'ART', 'قسم اللغات الحديثة والأدب'),
+('ART-HIST', 'ART', 'قسم التاريخ'),
+('EDU-PSY', 'EDU', 'قسم علم النفس التربوي'),
+('EDU-CURR', 'EDU', 'قسم المناهج وطرق التدريس'),
+('EDU-LEAD', 'EDU', 'قسم القيادة التربوية والسياسات'),
+('LAW-CIV', 'LAW', 'قسم القانون العام'),
+('LAW-INT', 'LAW', 'قسم القانون الدولي'),
+('MED-MED', 'MED', 'قسم الطب'),
+('MED-SURG', 'MED', 'قسم الجراحة'),
+('MED-PHARM', 'MED', 'قسم الصيدلة'),
+('ENV-SCI', 'ENV', 'قسم علوم البيئة'),
+('ENV-GEO', 'ENV', 'قسم الجغرافيا'),
+('ENV-PLAN', 'ENV', 'قسم التخطيط العمراني'),
+('KIN-KIN', 'KIN', 'قسم علوم الحركة'),
 
 INSERT INTO Courses (Course_ID, Course_Name, Credit_Hours, Level, Semester, Dependency_Course_ID)
 VALUES
@@ -65,7 +63,7 @@ VALUES
     ('CS220', 'Algorithms and Complexity', 3, 2, 2, 'CS102'),
     ('CS240', 'Human-Computer Interaction', 3, 2, 2, NULL),
     ('CS260', 'Software Testing and Quality Assurance', 3, 2, 2, 'CS140'),
-    ('ECON101', 'Principles of Economics', 3, 2, 2, NULL),
+    ('ECON101', 'Principles of Microeconomics', 3, 2, 2, NULL),
 
     -- Year 3, Semester 1
     ('CS301', 'Software Engineering', 3, 3, 1, 'CS202'),
@@ -81,7 +79,7 @@ VALUES
     ('CS340', 'Natural Language Processing', 3, 3, 2, 'CS202'), 
     ('CS350', 'Software Design Patterns', 3, 3, 2, 'CS301'),
     ('CS360', 'Cloud Computing', 3, 3, 2, 'CS240'),
-    ('BUS101', 'Introduction to Business Management', 3, 3, 2, NULL),
+    ('BUS101', 'Introduction to Business', 3, 3, 2, NULL),
 
     -- Year 4, Semester 1
     ('CS401', 'Capstone Project', 3, 4, 1, 'CS302'),
@@ -121,7 +119,7 @@ VALUES
     -- Year 2, Semester 1
     ('ECE201', 'Electronics I', 3, 2, 1, 'ECE102'),
     ('ECE220', 'Microprocessors and Assembly Language', 3, 2, 1, 'ECE102'),
-    ('MATH201', 'Multivariable Calculus', 3, 2, 1, 'MATH102'),
+    ('MATH103', 'Multivariable Calculus', 3, 2, 1, 'MATH102'),
     ('PHYS201', 'Electricity and Magnetism', 3, 2, 1, 'PHYS102'),
     ('ECE210', 'Electromagnetics I', 3, 2, 1, 'ECE201'),
     ('HUM101', 'Introduction to Humanities', 3, 2, 1, NULL),
@@ -129,7 +127,7 @@ VALUES
     -- Year 2, Semester 2
     ('ECE202', 'Signals and Systems', 3, 2, 2, 'MATH201'),
     ('ECE230', 'Introduction to Control Systems', 3, 2, 2, 'ECE202'),
-    ('MATH202', 'Linear Algebra II', 3, 2, 2, 'MATH202'),
+    ('MATH202', 'Linear Algebra', 3, 2, 2, 'MATH103'),
     ('ECE240', 'Introduction to Communication Systems', 3, 2, 2, 'ECE102'),
     ('ECE250', 'Digital Systems Design', 3, 2, 2, 'ECE102'),
     ('SS101', 'Social Sciences Elective', 3, 2, 2, NULL),
@@ -211,8 +209,8 @@ VALUES
 
     -- Year 3, Semester 2
     ('ME302', 'Machine Design II', 3, 3, 2, 'ME210'),
-    ('ME330', 'Advanced Fluid Mechanics', 3, 3, 2, 'ME220'),
-    ('ME340', 'Vibration Analysis', 3, 3, 2, 'ME240'),
+    ('ME321', 'Advanced Fluid Mechanics', 3, 3, 2, 'ME220'),
+    ('ME341', 'Vibration Analysis', 3, 3, 2, 'ME240'),
     ('ME350', 'Energy Systems Engineering', 3, 3, 2, 'ME202'),
     ('ME360', 'Robotics', 3, 3, 2, 'ME320'),
     ('ME370', 'Engineering Project Management', 3, 3, 2, 'ME340'),
@@ -262,7 +260,7 @@ VALUES
 
     -- Year 2, Semester 2
     ('CHEM202', 'Fluid Mechanics', 3, 2, 2, 'MATH202'),
-    ('PHYS201', 'Physics II', 3, 2, 2, 'PHYS101'),
+    ('PHYS102', 'Physics II', 3, 2, 2, 'PHYS101'),
     ('CHEM230', 'Separation Processes', 3, 2, 2, 'CHEM203'),
     ('CHEM240', 'Process Control', 3, 2, 2, 'CHEM201'),
     ('CHEM250', 'Chemical Engineering Thermodynamics II', 3, 2, 2, 'CHEM201'),
@@ -274,7 +272,7 @@ VALUES
     ('CHEM330', 'Petroleum Refining', 3, 3, 1, 'CHEM210'),
     ('CHEM340', 'Pharmaceutical Engineering', 3, 3, 1, 'CHEM220'),
     ('CHEM350', 'Electrochemical Engineering', 3, 3, 1, 'CHEM201'),
-    ('BUS101', 'Introduction to Business Management', 3, 3, 1, NULL),
+    ('BUS101', 'Introduction to Business', 3, 3, 1, NULL),
 
     -- Year 3, Semester 2
     ('CHEM360', 'Process Safety and Risk Assessment', 3, 3, 2, 'CHEM201'),
@@ -296,7 +294,7 @@ VALUES
     ('CHEM407', 'Industrial Internship', 3, 4, 2, NULL),
     ('CHEM408', 'Advanced Materials Engineering', 3, 4, 2, 'CHEM380'),
     ('CHEM409', 'Chemical Engineering Economics and Project Management', 3, 4, 2, 'CHEM250'),
-    ('CHEM410', 'Catalysis and Reaction Engineering', 3, 4, 2, 'CHEM310'),
+    ('CHEM420', 'Catalysis and Reaction Engineering', 3, 4, 2, 'CHEM310'),
     ('CHEM411', 'Sustainable Process Engineering', 3, 4, 2, 'CHEM390'),
     ('CHEM412', 'Regulatory Compliance in Chemical Engineering', 3, 4, 2, 'CHEM402');
 
@@ -307,14 +305,14 @@ VALUES
     ('PHYS101', 'Physics I', 3, 1, 1, NULL),
     ('CHEM101', 'General Chemistry I', 3, 1, 1, NULL),
     ('MATH101', 'Calculus I', 3, 1, 1, NULL),
-    ('ENG101', 'Engineering Drawing', 3, 1, 1, NULL),
+    ('END101', 'Engineering Drawing', 3, 1, 1, NULL),
     ('ENGL101', 'English Composition I', 3, 1, 1, NULL),
 
     -- Year 1, Semester 2
     ('CE102', 'Civil Engineering Materials', 3, 1, 2, 'CHEM101'),
     ('MATH102', 'Calculus II', 3, 1, 2, 'MATH101'),
     ('PHYS102', 'Physics II', 3, 1, 2, 'PHYS101'),
-    ('ENG102', 'Surveying', 3, 1, 2, NULL),
+    ('END102', 'Surveying', 3, 1, 2, NULL),
     ('ENGL102', 'English Composition II', 3, 1, 2, 'ENGL101'),
     ('SS101', 'Social Sciences Elective', 3, 1, 2, NULL),
 
@@ -322,7 +320,7 @@ VALUES
     ('CE201', 'Structural Analysis', 3, 2, 1, 'CE102'),
     ('CE202', 'Geotechnical Engineering', 3, 2, 1, 'CE102'),
     ('CE203', 'Fluid Mechanics', 3, 2, 1, 'PHYS102'),
-    ('MATH201', 'Differential Equations', 3, 2, 1, 'MATH102'),
+    ('MATH231', 'Differential Equations', 3, 2, 1, 'MATH102'),
     ('ENG201', 'Transportation Engineering', 3, 2, 1, NULL),
     ('HUM101', 'Introduction to Humanities', 3, 2, 1, NULL),
 
@@ -340,7 +338,7 @@ VALUES
     ('CE303', 'Water Resources Engineering', 3, 3, 1, 'CE206'),
     ('CE304', 'Highway Engineering', 3, 3, 1, 'ENG201'),
     ('CE305', 'Construction Management', 3, 3, 1, 'CE207'),
-    ('BUS101', 'Introduction to Business Management', 3, 3, 1, NULL),
+    ('BUS101', 'Introduction to Business', 3, 3, 1, NULL),
 
     -- Year 3, Semester 2
     ('CE306', 'Steel Structures', 3, 3, 2, 'CE201'),
@@ -387,9 +385,9 @@ VALUES
     ('ENGL102', 'English Composition II', 3, 1, 2, 'ENGL101'),
 
     -- Year 2, Semester 1
-    ('MATH201', 'Introduction to Differential Equations', 3, 2, 1, 'MATH103'),
-    ('MATH202', 'Advanced Linear Algebra', 3, 2, 1, 'MATH104'),
-    ('STAT201', 'Mathematical Statistics', 3, 2, 1, 'STAT102'),
+    ('MATH231', 'Differential Equations', 3, 2, 1, 'MATH103'),
+    ('MATH202', 'Linear Algebra', 3, 2, 1, 'MATH104'),
+    ('STAT201', 'Advanced Statistics', 3, 2, 1, 'STAT102'),
     ('CMSC201', 'Algorithm Design and Analysis', 3, 2, 1, 'CMSC102'),
     ('CHEM101', 'General Chemistry I', 3, 2, 1, NULL),
     ('HUM101', 'Introduction to Humanities', 3, 2, 1, NULL),
@@ -403,12 +401,12 @@ VALUES
     ('SS101', 'Social Sciences Elective', 3, 2, 2, NULL),
 
     -- Year 3, Semester 1
-    ('MATH301', 'Real Analysis', 3, 3, 1, 'MATH203'),
+    ('MATH311', 'Real Analysis', 3, 3, 1, 'MATH203'),
     ('MATH302', 'Topology', 3, 3, 1, 'MATH201'),
     ('STAT301', 'Stochastic Processes', 3, 3, 1, 'STAT202'),
     ('CMSC301', 'Operating Systems', 3, 3, 1, 'CMSC202'),
     ('PHYS201', 'Electricity and Magnetism', 3, 3, 1, 'PHYS102'),
-    ('BUS101', 'Introduction to Business Management', 3, 3, 1, NULL),
+    ('BUS101', 'Introduction to Business', 3, 3, 1, NULL),
 
     -- Year 3, Semester 2
     ('MATH303', 'Partial Differential Equations', 3, 3, 2, 'MATH301'),
@@ -458,7 +456,7 @@ VALUES
     ('PHYC210', 'Electronics for Physicists', 3, 2, 1, 'PHYC102'),
     ('PHYC230', 'Statistical Mechanics', 3, 2, 1, 'PHYC201'),
     ('CHEM102', 'General Chemistry II', 3, 2, 1, 'CHEM101'),
-    ('BUS101', 'Introduction to Business Management', 3, 2, 1, NULL),
+    ('BUS101', 'Introduction to Business', 3, 2, 1, NULL),
 
     -- Year 2, Semester 2
     ('PHYC202', 'Quantum Mechanics I', 3, 2, 2, 'MATH202'),
@@ -511,7 +509,7 @@ VALUES
     ('SS101', 'Social Sciences Elective', 3, 1, 1, NULL),
 
     -- Year 1, Semester 2
-    ('BIOL102', 'Cell Biology', 3, 1, 2, 'BIOL101'),
+    ('BIOL102', 'Biology II', 3, 1, 2, 'BIOL101'),
     ('CHEM102', 'General Chemistry II', 3, 1, 2, 'CHEM101'),
     ('MATH102', 'Calculus II', 3, 1, 2, 'MATH101'),
     ('PHYS102', 'Physics II', 3, 1, 2, 'PHYS101'),
@@ -520,17 +518,16 @@ VALUES
 
     -- Year 2, Semester 1
     ('BIOL201', 'Genetics', 3, 2, 1, 'BIOL102'),
-    ('CHEM201', 'Organic Chemistry I', 3, 2, 1, 'CHEM102'),
-    ('MATH201', 'Statistics for Biologists', 3, 2, 1, 'MATH102'),
+    ('CHEM211', 'Organic Chemistry I', 3, 2, 1, 'CHEM102'),
+    ('BIOS101', 'Statistics for Biologists', 3, 2, 1, 'MATH102'),
     ('BIOL202', 'Microbiology', 3, 2, 1, 'BIOL102'),
     ('BIOL210', 'Ecology', 3, 2, 1, 'BIOL101'),
     ('CMSC101', 'Introduction to Computer Science', 3, 2, 1, NULL),
 
     -- Year 2, Semester 2
     ('BIOL203', 'Biochemistry', 3, 2, 2, 'BIOL201'),
-    ('CHEM202', 'Organic Chemistry II', 3, 2, 2, 'CHEM201'),
-    ('MATH202', 'Biostatistics', 3, 2, 2, 'MATH201'),
-    ('BIOL204', 'Evolutionary Biology', 3, 2, 2, 'BIOL210'),
+    ('CHEM212', 'Organic Chemistry II', 3, 2, 2, 'CHEM201'),
+    ('BIO111', 'Biostatistics', 3, 2, 2, 'MATH201'),
     ('BIOL220', 'Physiology', 3, 2, 2, 'BIOL102'),
     ('TECH101', 'Technology and Society', 3, 2, 2, NULL),
 
@@ -540,7 +537,7 @@ VALUES
     ('BIOL310', 'Plant Biology', 3, 3, 1, 'BIOL210'),
     ('BIOL320', 'Zoology', 3, 3, 1, 'BIOL210'),
     ('BIOL330', 'Immunology', 3, 3, 1, 'BIOL202'),
-    ('BUS101', 'Introduction to Business Management', 3, 3, 1, NULL),
+    ('BUS101', 'Introduction to Business', 3, 3, 1, NULL),
 
     -- Year 3, Semester 2
     ('BIOL303', 'Cancer Biology', 3, 3, 2, 'BIOL301'),
@@ -599,8 +596,8 @@ VALUES
     ('ACCT202', 'Intermediate Accounting II', 3, 2, 2, 'ACCT201'),
     ('ACCT210', 'Cost Accounting', 3, 2, 2, 'ACCT201'),
     ('FIN210', 'Financial Management', 3, 2, 2, 'FIN201'),
-    ('BUS220', 'Business Law II', 3, 2, 2, 'BUS210'),
-    ('STAT102', 'Regression Analysis', 3, 2, 2, 'STAT101'),
+    ('BUS220', 'Human Resource Management', 3, 2, 2, 'BUS210'),
+    ('STAT102', 'Probability Theory', 3, 2, 2, 'STAT101'),
     ('TECH101', 'Technology and Society', 3, 2, 2, NULL),
 
     -- Year 3, Semester 1
@@ -624,15 +621,15 @@ VALUES
     ('ACCT402', 'Forensic Accounting', 3, 4, 1, 'ACCT302'),
     ('ACCT403', 'Government and Non-Profit Accounting', 3, 4, 1, 'ACCT301'),
     ('FIN410', 'Advanced Corporate Finance', 3, 4, 1, 'FIN310'),
-    ('BUS410', 'Strategic Management', 3, 4, 1, 'BUS101'),
-    ('BUS400', 'Capstone Project in Business Accounting', 3, 4, 1, NULL),
+    ('BUS410', 'Corporate Governance', 3, 4, 1, 'BUS101'),
+    ('BUS403', 'Capstone Project in Business Accounting', 3, 4, 1, NULL),
 
     -- Year 4, Semester 2
     ('ACCT404', 'Ethics in Accounting', 3, 4, 2, NULL),
     ('ACCT405', 'Advanced Auditing', 3, 4, 2, 'ACCT310'),
     ('ACCT406', 'Accounting Information Systems', 3, 4, 2, 'ACCT302'),
     ('FIN420', 'Financial Risk Management', 3, 4, 2, 'FIN310'),
-    ('BUS420', 'Global Business Strategy', 3, 4, 2, 'BUS410'),
+    ('BUS420', 'Innovation Management', 3, 4, 2, 'BUS410'),
     ('BUS430', 'Leadership in Business', 3, 4, 2, NULL);
 
 
@@ -658,7 +655,7 @@ VALUES
 
     -- Year 2, Semester 1
     ('BUS201', 'Business Communication', 3, 2, 1, 'BUS102'),
-    ('STAT201', 'Business Statistics', 3, 2, 1, 'MATH102'),
+    ('STAT201', 'Advanced Statistics', 3, 2, 1, 'MATH102'),
     ('MKTG201', 'Principles of Marketing', 3, 2, 1, 'BUS101'),
     ('MGMT201', 'Principles of Management', 3, 2, 1, 'BUS101'),
     ('FIN201', 'Principles of Finance', 3, 2, 1, 'BUS101'),
@@ -676,7 +673,7 @@ VALUES
     ('MGMT301', 'Leadership', 3, 3, 1, 'MGMT202'),
     ('BUS310', 'Strategic Management', 3, 3, 1, 'BUS220'),
     ('MKTG301', 'International Marketing', 3, 3, 1, 'MKTG201'),
-    ('FIN310', 'Financial Management', 3, 3, 1, 'FIN201'),
+    ('FIN310', 'Investments', 3, 3, 1, 'FIN201'),
     ('BUS320', 'Business Analytics', 3, 3, 1, 'STAT201'),
     ('BUS330', 'Ethical Decision Making in Business', 3, 3, 1, 'BUS102'),
 
@@ -691,15 +688,15 @@ VALUES
     -- Year 4, Semester 1
     ('MGMT401', 'Business Consulting', 3, 4, 1, 'MGMT302'),
     ('BUS410', 'Corporate Governance', 3, 4, 1, 'BUS310'),
-    ('MKTG401', 'Marketing Analytics', 3, 4, 1, 'BUS320'),
+    ('MKTG401', 'Strategic Marketing Management', 3, 4, 1, 'BUS320'),
     ('FIN410', 'Advanced Financial Management', 3, 4, 1, 'FIN320'),
     ('BUS420', 'Innovation Management', 3, 4, 1, 'ENTR201'),
-    ('BUS400', 'Capstone Project in Business Management', 3, 4, 1, NULL),
+    ('BUS402', 'Capstone Project in Business Management', 3, 4, 1, NULL),
 
     -- Year 4, Semester 2
     ('MGMT402', 'Crisis Management', 3, 4, 2, 'MGMT401'),
-    ('BUS430', 'Leadership in a Global Context', 3, 4, 2, 'MGMT301'),
-    ('MKTG402', 'Brand Management', 3, 4, 2, 'MKTG301'),
+    ('BUS430', 'Leadership in Business', 3, 4, 2, 'MGMT301'),
+    ('MKTG402', 'Marketing Consulting', 3, 4, 2, 'MKTG301'),
     ('FIN420', 'Financial Risk Management', 3, 4, 2, 'FIN410'),
     ('BUS440', 'Social Responsibility in Business', 3, 4, 2, NULL),
     ('BUS450', 'Business Innovation Project', 3, 4, 2, 'BUS420');
@@ -728,7 +725,7 @@ VALUES
 
     -- Year 2, Semester 1
     ('MKTG201', 'Marketing Research', 3, 2, 1, 'MKTG102'),
-    ('STAT201', 'Business Statistics', 3, 2, 1, 'MATH102'),
+    ('STAT201', 'Advanced Statistics', 3, 2, 1, 'MATH102'),
     ('BUS201', 'Business Communication', 3, 2, 1, 'BUS102'),
     ('MKTG202', 'Digital Marketing', 3, 2, 1, 'MKTG101'),
     ('MGMT201', 'Principles of Management', 3, 2, 1, 'BUS101'),
@@ -744,7 +741,7 @@ VALUES
 
     -- Year 3, Semester 1
     ('MKTG301', 'International Marketing', 3, 3, 1, 'MKTG203'),
-    ('MKTG302', 'Marketing Analytics', 3, 3, 1, 'STAT201'),
+    ('MKTG302', 'Digital Marketing', 3, 3, 1, 'STAT201'),
     ('BUS301', 'Leadership in Marketing', 3, 3, 1, 'MGMT201'),
     ('MKTG303', 'Retail Marketing', 3, 3, 1, 'MKTG204'),
     ('FIN301', 'Financial Management for Marketers', 3, 3, 1, 'FIN201'),
@@ -764,7 +761,7 @@ VALUES
     ('MKTG403', 'E-commerce Marketing', 3, 4, 1, 'MKTG202'),
     ('BUS410', 'Corporate Governance', 3, 4, 1, 'MGMT201'),
     ('MKTG404', 'Services Marketing', 3, 4, 1, 'MKTG301'),
-    ('BUS400', 'Capstone Project in Business Marketing', 3, 4, 1, NULL),
+    ('BUS401', 'Capstone Project in Business Marketing', 3, 4, 1, NULL),
 
     -- Year 4, Semester 2
     ('MKTG405', 'Global Marketing', 3, 4, 2, 'MKTG401'),
@@ -772,13 +769,13 @@ VALUES
     ('MKTG407', 'Marketing Ethics and Law', 3, 4, 2, 'MKTG401'),
     ('MKTG408', 'Innovation in Marketing', 3, 4, 2, 'MKTG403'),
     ('BUS420', 'Innovation Management', 3, 4, 2, 'ENTR201'),
-    ('BUS430', 'Leadership in a Global Context', 3, 4, 2, 'MGMT301');
+    ('BUS430', 'Leadership in Business', 3, 4, 2, 'MGMT301');
 
   
   
   --ART-ENG
     -- Year 1, Semester 1
-    ('ENGL101', 'Introduction to Composition', 3, 1, 1, NULL),
+    ('ENGL101', 'English Composition I', 3, 1, 1, NULL),
     ('WLIT101', 'Introduction to World Literature', 3, 1, 1, NULL), 
     ('ENGL110', 'Creative Writing I', 3, 1, 1, 'ENGL101'),
     ('ENGL120', 'British Literature I', 3, 1, 1, 'ENGL101'),
@@ -786,7 +783,7 @@ VALUES
     ('ENGL140', 'Introduction to Linguistics', 3, 1, 1, NULL),
 
     -- Year 1, Semester 2
-    ('ENGL102', 'Introduction to Literature', 3, 1, 2, 'ENGL101'),
+    ('ENGL103', 'Introduction to Literature', 3, 1, 2, 'ENGL101'),
     ('ENGL150', 'Public Speaking', 3, 1, 2, NULL),
     ('ENGL160', 'Creative Writing II', 3, 1, 2, 'ENGL110'),
     ('ENGL170', 'World Literature II', 3, 1, 2, 'WLIT101'),
@@ -849,7 +846,7 @@ VALUES
     ('ARAB102', 'Arabic Writing and Reading Skills', 3, 1, 1, NULL),
     ('ARAB103', 'Introduction to Arabic Literature', 3, 1, 1, NULL),
     ('LING101', 'Introduction to Linguistics', 3, 1, 1, NULL),
-    ('HIST101', 'Introduction to Arabic History and Culture', 3, 1, 1, NULL),
+    ('HIST131', 'Introduction to Arabic History and Culture', 3, 1, 1, NULL),
     ('ARAB104', 'Arabic Conversation', 3, 1, 1, NULL),
 
     -- Year 1, Semester 2
@@ -857,7 +854,7 @@ VALUES
     ('ARAB106', 'Arabic Composition', 3, 1, 2, 'ARAB102'),
     ('ARAB107', 'Introduction to Classical Arabic Literature', 3, 1, 2, 'ARAB103'),
     ('ARAB108', 'Arabic Phonetics and Phonology', 3, 1, 2, 'LING101'),
-    ('HIST102', 'History of Arabic Civilization', 3, 1, 2, 'HIST101'),
+    ('HIST122', 'History of Arabic Civilization', 3, 1, 2, 'HIST101'),
     ('ARAB109', 'Arabic Media Studies', 3, 1, 2, 'ARAB104'),
 
     -- Year 2, Semester 1
@@ -1057,14 +1054,14 @@ VALUES
     -- Year 1, Semester 2
     ('EPSY102', 'Human Development and Learning', 3, 1, 2, 'EPSY101'),
     ('EPSY110', 'Motivation in Education', 3, 1, 2, 'EPSY102'),
-    ('ENGL101', 'Introduction to Composition', 3, 1, 2, NULL),
+    ('ENGL101', 'English Composition I', 3, 1, 2, NULL),
     ('HIST101', 'Introduction to World History', 3, 1, 2, NULL),
     ('GEOL101', 'Introduction to Geology', 3, 1, 2, NULL),
     ('PSY102', 'Abnormal Psychology', 3, 1, 2, 'PSY101'),
 
     -- Year 2, Semester 1
     ('EPSY201', 'Learning Theories and Instruction', 3, 2, 1, 'EPSY102'),
-    ('STAT201', 'Introduction to Statistics', 3, 2, 1, NULL),
+    ('STAT201', 'Advanced Statistics', 3, 2, 1, NULL),
     ('EPSY220', 'Special Needs Education', 3, 2, 1, 'EPSY102'),
     ('PHIL201', 'Introduction to Ethics', 3, 2, 1, NULL),
     ('SOC101', 'Introduction to Sociology', 3, 2, 1, NULL),
@@ -1125,14 +1122,14 @@ VALUES
     -- Year 1, Semester 2
     ('EDUC102', 'History of Education', 3, 1, 2, 'EDUC101'),
     ('EPSY101', 'Introduction to Educational Psychology', 3, 1, 2, 'PSY101'),
-    ('ENGL101', 'Introduction to Composition', 3, 1, 2, NULL),
+    ('ENGL101', 'English Composition I', 3, 1, 2, NULL),
     ('HIST101', 'Introduction to World History', 3, 1, 2, NULL),
     ('GEOL101', 'Introduction to Geology', 3, 1, 2, NULL),
     ('PSY102', 'Abnormal Psychology', 3, 1, 2, 'PSY101'),
 
     -- Year 2, Semester 1
     ('EDUC201', 'Curriculum Development', 3, 2, 1, 'EDUC102'),
-    ('STAT201', 'Introduction to Statistics', 3, 2, 1, NULL),
+    ('STAT201', 'Advanced Statistics', 3, 2, 1, NULL),
     ('EPSY201', 'Learning Theories and Instruction', 3, 2, 1, 'EPSY101'),
     ('PHIL201', 'Introduction to Ethics', 3, 2, 1, NULL),
     ('SOC101', 'Introduction to Sociology', 3, 2, 1, NULL),
@@ -1193,14 +1190,14 @@ VALUES
     -- Year 1, Semester 2
     ('EDUL102', 'Foundations of Educational Leadership', 3, 1, 2, 'EDUL101'),
     ('EPSY101', 'Introduction to Educational Psychology', 3, 1, 2, 'PSY101'),
-    ('ENGL101', 'Introduction to Composition', 3, 1, 2, NULL),
+    ('ENGL101', 'English Composition I', 3, 1, 2, NULL),
     ('HIST101', 'Introduction to World History', 3, 1, 2, NULL),
     ('GEOL101', 'Introduction to Geology', 3, 1, 2, NULL),
     ('PSY102', 'Abnormal Psychology', 3, 1, 2, 'PSY101'),
 
     -- Year 2, Semester 1
     ('EDUL201', 'Organizational Behavior in Education', 3, 2, 1, 'EDUL102'),
-    ('STAT201', 'Introduction to Statistics', 3, 2, 1, NULL),
+    ('STAT201', 'Advanced Statistics', 3, 2, 1, NULL),
     ('EPSY201', 'Learning Theories and Instruction', 3, 2, 1, 'EPSY101'),
     ('PHIL201', 'Introduction to Ethics', 3, 2, 1, NULL),
     ('SOC101', 'Introduction to Sociology', 3, 2, 1, NULL),
@@ -1255,8 +1252,8 @@ VALUES
     ('LAW102', 'Introduction to Civil Law', 3, 1, 1, 'LAW101'),
     ('PHIL101', 'Introduction to Philosophy of Law', 3, 1, 1, NULL),
     ('ENG101', 'Legal Writing and Research', 3, 1, 1, NULL),
-    ('HIST101', 'Legal History', 3, 1, 1, NULL),
-    ('MATH101', 'Logic and Reasoning', 3, 1, 1, NULL),
+    ('HIST121', 'Legal History', 3, 1, 1, NULL),
+    ('LOG101', 'Logic and Reasoning', 3, 1, 1, NULL),
 
     -- Year 1, Semester 2
     ('LAW103', 'Contracts Law', 3, 1, 2, 'LAW102'),
@@ -1317,99 +1314,29 @@ VALUES
 
 
 
-  --LAW-INT
-    -- Year 1, Semester 1
-    ('LAW101', 'Introduction to Legal Studies', 3, 1, 1, NULL),
-    ('LAW102', 'Introduction to International Law', 3, 1, 1, 'LAW101'),
-    ('PHIL101', 'Introduction to Philosophy of Law', 3, 1, 1, NULL),
-    ('ENG101', 'Legal Writing and Research', 3, 1, 1, NULL),
-    ('HIST101', 'Legal History', 3, 1, 1, NULL),
-    ('MATH101', 'Logic and Reasoning', 3, 1, 1, NULL),
-
-    -- Year 1, Semester 2
-    ('LAW103', 'Public International Law', 3, 1, 2, 'LAW102'),
-    ('LAW104', 'Private International Law', 3, 1, 2, 'LAW102'),
-    ('LAW105', 'International Human Rights Law', 3, 1, 2, 'LAW102'),
-    ('LAW106', 'International Trade Law', 3, 1, 2, 'LAW102'),
-    ('LAW107', 'International Criminal Law', 3, 1, 2, 'LAW102'),
-    ('LAW108', 'Legal Research Methods', 3, 1, 2, 'ENG101'),
-
-    -- Year 2, Semester 1
-    ('LAW201', 'International Environmental Law', 3, 2, 1, 'LAW103'),
-    ('LAW202', 'International Organizations Law', 3, 2, 1, 'LAW104'),
-    ('LAW203', 'Diplomatic Law', 3, 2, 1, 'LAW105'),
-    ('LAW204', 'Law of Armed Conflict', 3, 2, 1, 'LAW106'),
-    ('LAW205', 'International Investment Law', 3, 2, 1, 'LAW103'),
-    ('LAW206', 'Legal Issues in Global Health', 3, 2, 1, 'LAW104'),
-
-    -- Year 2, Semester 2
-    ('LAW207', 'Law of the Sea', 3, 2, 2, 'LAW201'),
-    ('LAW208', 'International Criminal Justice', 3, 2, 2, 'LAW202'),
-    ('LAW209', 'International Humanitarian Law', 3, 2, 2, 'LAW203'),
-    ('LAW210', 'International Investment Disputes', 3, 2, 2, 'LAW204'),
-    ('LAW211', 'International Commercial Arbitration', 3, 2, 2, 'LAW206'),
-    ('LAW212', 'Legal Issues in Cybersecurity', 3, 2, 2, 'LAW203'),
-
-    -- Year 3, Semester 1
-    ('LAW301', 'International Intellectual Property Law', 3, 3, 1, 'LAW201'),
-    ('LAW302', 'International Tax Law', 3, 3, 1, 'LAW207'),
-    ('LAW303', 'International Refugee Law', 3, 3, 1, 'LAW202'),
-    ('LAW304', 'International Business Transactions', 3, 3, 1, 'LAW208'),
-    ('LAW305', 'Space Law', 3, 3, 1, 'LAW206'),
-    ('LAW306', 'Legal Clinic: International Law', 3, 3, 1, 'LAW212'),
-
-    -- Year 3, Semester 2
-    ('LAW307', 'Humanitarian Intervention Law', 3, 3, 2, 'LAW203'),
-    ('LAW308', 'International Economic Law', 3, 3, 2, 'LAW204'),
-    ('LAW309', 'International Cyber Law', 3, 3, 2, 'LAW212'),
-    ('LAW310', 'International Moot Court Competition', 3, 3, 2, 'LAW209'),
-    ('LAW311', 'International Development Law', 3, 3, 2, 'LAW205'),
-    ('LAW312', 'Legal Issues in International Business', 3, 3, 2, 'LAW211'),
-
-    -- Year 4, Semester 1
-    ('LAW401', 'Legal Internship: International Law', 3, 4, 1, 'LAW306'),
-    ('LAW402', 'Seminar in International Law', 3, 4, 1, 'LAW307'),
-    ('LAW403', 'Comparative Law', 3, 4, 1, NULL),
-    ('LAW404', 'International Negotiation and Diplomacy', 3, 4, 1, 'LAW212'),
-    ('LAW405', 'International Legal Ethics', 3, 4, 1, 'LAW208'),
-    ('LAW406', 'International Human Rights Advocacy', 3, 4, 1, 'LAW202'),
-
-    -- Year 4, Semester 2
-    ('LAW407', 'Thesis in International Law', 3, 4, 2, NULL),
-    ('LAW408', 'Special Topics in International Law', 3, 4, 2, NULL),
-    ('LAW409', 'Legal Practice: International Litigation', 3, 4, 2, 'LAW306'),
-    ('LAW410', 'Legal Practice: International Business Transactions', 3, 4, 2, 'LAW311'),
-    ('LAW411', 'Legal Practice: Human Rights Advocacy', 3, 4, 2, 'LAW406'),
-    ('LAW412', 'Legal Practice: International Arbitration', 3, 4, 2, 'LAW211');
-
-
-
-
-
   --MED-MED
     -- Year 1, Semester 1
     ('MED101', 'Introduction to Medicine', 3, 1, 1, NULL),
     ('BIO101', 'Anatomy', 3, 1, 1, NULL),
-    ('CHEM101', 'General Chemistry', 3, 1, 1, NULL),
-    ('PHYS101', 'Physics', 3, 1, 1, NULL),
-    ('MATH101', 'Biostatistics', 3, 1, 1, NULL),
+    ('CHEM101', 'General Chemistry I', 3, 1, 1, NULL),
+    ('PHYS101', 'Physics I', 3, 1, 1, NULL),
+    ('BIO111', 'Biostatistics', 3, 1, 1, NULL),
     ('COMM101', 'Communication Skills in Medicine', 3, 1, 1, NULL),
 
     -- Year 1, Semester 2
     ('MED102', 'Medical Ethics', 3, 1, 2, NULL),
     ('BIO102', 'Physiology', 3, 1, 2, 'BIO101'),
-    ('CHEM102', 'Biochemistry', 3, 1, 2, 'CHEM101'),
-    ('PHYS102', 'Medical Imaging', 3, 1, 2, 'PHYS101'),
-    ('MATH102', 'Medical Informatics', 3, 1, 2, 'MATH101'),
+    ('BIOL203', 'Biochemistry', 3, 1, 2, 'CHEM101'),
+    ('MED122', 'Medical Imaging', 3, 1, 2, 'PHYS101'),
+    ('MED112', 'Medical Informatics', 3, 1, 2, 'MATH101'),
     ('COMM102', 'Professional Communication in Medicine', 3, 1, 2, 'COMM101'),
 
     -- Year 2, Semester 1
     ('MED201', 'Pathology', 3, 2, 1, 'BIO102'),
     ('MICRO201', 'Microbiology', 3, 2, 1, 'BIO102'),
-    ('PHARM201', 'Pharmacology', 3, 2, 1, 'CHEM102'),
+    ('PHARM103', 'Pharmacology I', 3, 2, 1, 'CHEM102'),
     ('CLIN201', 'Clinical Skills I', 3, 2, 1, 'MED101'),
     ('ETH201', 'Ethical Issues in Medicine', 3, 2, 1, 'MED102'),
-    ('BIOS201', 'Biostatistics for Medicine', 3, 2, 1, 'MATH101'),
 
     -- Year 2, Semester 2
     ('MED202', 'Introduction to Clinical Medicine', 3, 2, 2, 'MED201'),
@@ -1489,25 +1416,25 @@ VALUES
     -- Year 1, Semester 1
     ('SURG101', 'Introduction to Surgical Medicine', 3, 1, 1, NULL),
     ('BIO101', 'Anatomy', 3, 1, 1, NULL),
-    ('CHEM101', 'General Chemistry', 3, 1, 1, NULL),
-    ('PHYS101', 'Physics', 3, 1, 1, NULL),
-    ('MATH101', 'Biostatistics', 3, 1, 1, NULL),
+    ('CHEM101', 'General Chemistry I', 3, 1, 1, NULL),
+    ('PHYS101', 'Physics I', 3, 1, 1, NULL),
+    ('BIO111', 'Biostatistics', 3, 1, 1, NULL),
     ('COMM101', 'Communication Skills in Medicine', 3, 1, 1, NULL),
 
     -- Year 1, Semester 2
     ('SURG102', 'Basic Surgical Techniques', 3, 1, 2, 'SURG101'),
     ('BIO102', 'Physiology', 3, 1, 2, 'BIO101'),
-    ('CHEM102', 'Biochemistry', 3, 1, 2, 'CHEM101'),
-    ('PHYS102', 'Medical Imaging', 3, 1, 2, 'PHYS101'),
-    ('MATH102', 'Medical Informatics', 3, 1, 2, 'MATH101'),
+    ('BIOL203', 'Biochemistry', 3, 1, 2, 'CHEM101'),
+    ('MED122', 'Medical Imaging', 3, 1, 2, 'PHYS101'),
+    ('MED112', 'Medical Informatics', 3, 1, 2, 'MATH101'),
     ('COMM102', 'Professional Communication in Medicine', 3, 1, 2, 'COMM101'),
 
     -- Year 2, Semester 1
     ('SURG201', 'Surgical Anatomy', 3, 2, 1, 'SURG102'),
     ('MICRO201', 'Microbiology', 3, 2, 1, 'BIO102'),
-    ('PHARM201', 'Pharmacology', 3, 2, 1, 'CHEM102'),
+    ('PHARM103', 'Pharmacology I', 3, 2, 1, 'CHEM102'),
     ('CLIN201', 'Clinical Skills I', 3, 2, 1, 'SURG101'),
-    ('ETH201', 'Ethical Issues in Surgery', 3, 2, 1, 'SURG102'),
+    ('ETH201', 'Ethical Issues in Medicine', 3, 2, 1, 'SURG102'),
     ('BIOS201', 'Biostatistics for Surgery', 3, 2, 1, 'MATH101'),
 
     -- Year 2, Semester 2
@@ -1588,32 +1515,32 @@ VALUES
   --MED-PHARM
     -- Year 1, Semester 1
     ('PHARM101', 'Introduction to Pharmacy', 3, 1, 1, NULL),
-    ('CHEM101', 'General Chemistry', 3, 1, 1, NULL),
-    ('BIOL101', 'Biology', 3, 1, 1, NULL),
-    ('MATH101', 'Mathematics for Pharmacy', 3, 1, 1, NULL),
+    ('CHEM101', 'General Chemistry I', 3, 1, 1, NULL),
+    ('BIOL101', 'Introduction to Biology', 3, 1, 1, NULL),
+    ('MATH111', 'Mathematics for Pharmacy', 3, 1, 1, NULL),
     ('COMM101', 'Communication Skills for Pharmacists', 3, 1, 1, NULL),
     ('PHARM102', 'Pharmacy Ethics and Professionalism', 3, 1, 1, NULL),
 
     -- Year 1, Semester 2
     ('PHARM103', 'Pharmacology I', 3, 1, 2, 'PHARM101'),
-    ('CHEM102', 'Organic Chemistry', 3, 1, 2, 'CHEM101'),
-    ('BIOL102', 'Microbiology', 3, 1, 2, 'BIOL101'),
-    ('MATH102', 'Statistics for Pharmacists', 3, 1, 2, 'MATH101'),
+    ('CHEM102', 'Organic Chemistry II', 3, 1, 2, 'CHEM101'),
+    ('BIOL102', 'Biology II', 3, 1, 2, 'BIOL101'),
+    ('MATH112', 'Statistics for Pharmacists', 3, 1, 2, 'MATH101'),
     ('PHARM104', 'Introduction to Pharmacy Practice', 3, 1, 2, 'PHARM101'),
     ('PHARM105', 'Pharmaceutical Formulation', 3, 1, 2, 'PHARM101'),
 
     -- Year 2, Semester 1
     ('PHARM201', 'Pharmacology II', 3, 2, 1, 'PHARM103'),
-    ('CHEM201', 'Pharmaceutical Chemistry', 3, 2, 1, 'CHEM102'),
-    ('BIOL201', 'Physiology', 3, 2, 1, 'BIOL102'),
-    ('PHARM202', 'Pharmacy Law and Regulations', 3, 2, 1, 'PHARM102'),
+    ('CHEM241', 'Pharmaceutical Chemistry', 3, 2, 1, 'CHEM102'),
+    ('BIOL201', 'Genetics', 3, 2, 1, 'BIOL102'),
+    ('PHARM202', 'Clinical Pharmacology', 3, 2, 1, 'PHARM102'),
     ('PHARM203', 'Pharmacy Management', 3, 2, 1, 'PHARM102'),
     ('PHARM204', 'Clinical Pharmacokinetics', 3, 2, 1, 'PHARM103'),
 
     -- Year 2, Semester 2
     ('PHARM205', 'Pharmacotherapy I', 3, 2, 2, 'PHARM201'),
-    ('CHEM202', 'Medicinal Chemistry', 3, 2, 2, 'CHEM201'),
-    ('BIOL202', 'Pathophysiology', 3, 2, 2, 'BIOL201'),
+    ('CHEM204', 'Medicinal Chemistry', 3, 2, 2, 'CHEM201'),
+    ('BIOL202', 'Microbiology', 3, 2, 2, 'BIOL201'),
     ('PHARM206', 'Pharmacy Informatics', 3, 2, 2, 'PHARM203'),
     ('PHARM207', 'Pharmacy Economics', 3, 2, 2, 'PHARM203'),
     ('PHARM208', 'Clinical Pharmacy Practice', 3, 2, 2, 'PHARM204'),
@@ -1686,7 +1613,7 @@ VALUES
   --ENV-SCI
     -- Year 1, Semester 1
     ('ENV101', 'Introduction to Environmental Science', 3, 1, 1, NULL),
-    ('BIOL101', 'Biology I', 3, 1, 1, NULL),
+    ('BIOL101', 'Introduction to Biology', 3, 1, 1, NULL),
     ('CHEM101', 'General Chemistry I', 3, 1, 1, NULL),
     ('MATH101', 'Calculus I', 3, 1, 1, NULL),
     ('ENVS110', 'Environmental Policy and Law', 3, 1, 1, NULL),
@@ -1703,7 +1630,7 @@ VALUES
     -- Year 2, Semester 1
     ('ENV201', 'Ecology', 3, 2, 1, 'ENV102'),
     ('PHYS101', 'Physics I', 3, 2, 1, NULL),
-    ('STAT101', 'Statistics for Environmental Sciences', 3, 2, 1, NULL),
+    ('STAT101', 'Introduction to Statistics', 3, 2, 1, NULL),
     ('ENVS210', 'Environmental Impact Assessment', 3, 2, 1, NULL),
     ('ENVS220', 'Environmental Management', 3, 2, 1, NULL),
     ('GEOL201', 'Geomorphology', 3, 2, 1, 'GEOL102'),
@@ -1711,7 +1638,7 @@ VALUES
     -- Year 2, Semester 2
     ('ENV202', 'Conservation Biology', 3, 2, 2, 'ENV201'),
     ('PHYS102', 'Physics II', 3, 2, 2, 'PHYS101'),
-    ('STAT102', 'Advanced Statistics for Environmental Sciences', 3, 2, 2, 'STAT101'),
+    ('STAT102', 'Probability Theory', 3, 2, 2, 'STAT101'),
     ('ENVS230', 'Environmental Monitoring and Modeling', 3, 2, 2, NULL),
     ('ENVS240', 'Sustainable Development', 3, 2, 2, 'ENV102'),
     ('GEOL202', 'Hydrology', 3, 2, 2, 'GEOL201'),
@@ -1756,18 +1683,18 @@ VALUES
     -- Year 1, Semester 1
     ('GEOG101', 'Introduction to Geography', 3, 1, 1, NULL),
     ('MATH101', 'Calculus I', 3, 1, 1, NULL),
-    ('BIOL101', 'Biology I', 3, 1, 1, NULL),
+    ('BIOL101', 'Introduction to Biology', 3, 1, 1, NULL),
     ('STAT101', 'Introduction to Statistics', 3, 1, 1, NULL),
     ('GEOG110', 'Geographic Information Systems (GIS)', 3, 1, 1, NULL),
-    ('ENGL101', 'Introduction to Composition', 3, 1, 1, NULL),
+    ('ENGL101', 'English Composition I', 3, 1, 1, NULL),
 
     -- Year 1, Semester 2
     ('GEOG102', 'Physical Geography', 3, 1, 2, 'GEOG101'),
     ('MATH102', 'Calculus II', 3, 1, 2, 'MATH101'),
     ('BIOL102', 'Biology II', 3, 1, 2, 'BIOL101'),
-    ('STAT102', 'Advanced Statistics for Geography', 3, 1, 2, 'STAT101'),
+    ('STAT102', 'Probability Theory', 3, 1, 2, 'STAT101'),
     ('GEOG120', 'Human Geography', 3, 1, 2, NULL),
-    ('ENGL102', 'Introduction to Literature', 3, 1, 2, 'ENGL101'),
+    ('ENGL103', 'Introduction to Literature', 3, 1, 2, 'ENGL101'),
 
     -- Year 2, Semester 1
     ('GEOG201', 'Geomorphology', 3, 2, 1, 'GEOG102'),
@@ -1825,7 +1752,7 @@ VALUES
     ('MATH101', 'Calculus I', 3, 1, 1, NULL),
     ('GEOG101', 'Introduction to Geography', 3, 1, 1, NULL),
     ('ECON101', 'Principles of Microeconomics', 3, 1, 1, NULL),
-    ('ENGL101', 'Introduction to Composition', 3, 1, 1, NULL),
+    ('ENGL101', 'English Composition I', 3, 1, 1, NULL),
     ('SOC101', 'Introduction to Sociology', 3, 1, 1, NULL),
 
     -- Year 1, Semester 2
@@ -1833,7 +1760,7 @@ VALUES
     ('MATH102', 'Calculus II', 3, 1, 2, 'MATH101'),
     ('GEOG102', 'Physical Geography', 3, 1, 2, 'GEOG101'),
     ('ECON102', 'Principles of Macroeconomics', 3, 1, 2, 'ECON101'),
-    ('ENGL102', 'Introduction to Literature', 3, 1, 2, 'ENGL101'),
+    ('ENGL103', 'Introduction to Literature', 3, 1, 2, 'ENGL101'),
     ('POL101', 'Introduction to Political Science', 3, 1, 2, NULL),
 
     -- Year 2, Semester 1
@@ -1848,7 +1775,7 @@ VALUES
     ('URB203', 'Urban Sociology', 3, 2, 2, 'SOC101'),
     ('URB204', 'Urban Economics', 3, 2, 2, 'ECON102'),
     ('GEOG202', 'Climatology', 3, 2, 2, 'GEOG102'),
-    ('STAT102', 'Advanced Statistics for Urban Planning', 3, 2, 2, 'STAT101'),
+    ('STAT102', 'Probability Theory', 3, 2, 2, 'STAT101'),
     ('PHYS102', 'Physics II', 3, 2, 2, 'PHYS101'),
     ('POL102', 'Comparative Politics', 3, 2, 2, 'POL101'),
 
@@ -1886,71 +1813,70 @@ VALUES
 
 
   --KIN-KIN
-    ('KIN101', 'Introduction to Kinesiology', 3, 1, 1, 'BIOL101'),
-    ('KIN102', 'Motor Learning and Development', 3, 1, 1, 'PSYC101'),
-    ('KIN103', 'Exercise Physiology', 3, 1, 1, 'BIOL101'),
-    ('STAT104', 'Introduction to Statistics', 3, 1, 1, NULL),
-    ('KIN105', 'Biomechanics', 3, 1, 1, 'KIN101'),
-    ('KIN106', 'Neuromotor Control', 3, 1, 1, 'KIN101');
+    -- Year 1, Semester 1
+    ('KIN101', 'Introduction to Kinesiology', 3, 1, 1, NULL),
+    ('KIN102', 'Anatomy and Physiology I', 3, 1, 1, NULL),
+    ('KIN103', 'Introduction to Exercise Science', 3, 1, 1, NULL),
+    ('KIN104', 'Biomechanics', 3, 1, 1, NULL),
+    ('KIN105', 'Psychology of Physical Activity', 3, 1, 1, NULL),
+    ('KIN106', 'Nutrition for Exercise and Health', 3, 1, 1, NULL),
 
-    -- Spring Semester
-    ('KIN107', 'Functional Anatomy', 3, 1, 2, 'BIOL101'),
-    ('KIN108', 'Exercise Psychology', 3, 1, 2, 'PSYC101'),
-    ('KIN109', 'Exercise Prescription', 3, 1, 2, 'KIN103'),
-    ('KIN110', 'Research Methods in Kinesiology', 3, 1, 2, NULL),
-    ('KIN111', 'Sports Nutrition', 3, 1, 2, 'KIN103'),
-    ('KIN112', 'Introduction to Sports Medicine', 3, 1, 2, NULL);
+    -- Year 1, Semester 2
+    ('KIN107', 'Motor Learning and Control', 3, 1, 2, 'KIN101'),
+    ('KIN108', 'Anatomy and Physiology II', 3, 1, 2, 'KIN102'),
+    ('KIN109', 'Exercise Physiology', 3, 1, 2, 'KIN103'),
+    ('KIN110', 'Sports Psychology', 3, 1, 2, 'KIN105'),
+    ('KIN111', 'Functional Movement Assessment', 3, 1, 2, NULL),
+    ('KIN112', 'Introduction to Research Methods in Kinesiology', 3, 1, 2, NULL),
 
-    -- Year 2
-    -- Fall Semester
-    ('KIN201', 'Advanced Biomechanics', 3, 2, 1, 'KIN105'),
-    ('KIN202', 'Exercise Testing and Prescription', 3, 2, 1, 'KIN109'),
-    ('KIN203', 'Cardiovascular Physiology', 3, 2, 1, 'KIN103'),
-    ('KIN204', 'Motor Control and Learning', 3, 2, 1, 'KIN102'),
-    ('KIN205', 'Health Promotion', 3, 2, 1, NULL),
-    ('KIN206', 'Sport and Exercise Psychology', 3, 2, 1, 'KIN108');
+    -- Year 2, Semester 1
+    ('KIN201', 'Advanced Biomechanics', 3, 2, 1, 'KIN104'),
+    ('KIN202', 'Exercise Prescription and Programming', 3, 2, 1, 'KIN109'),
+    ('KIN203', 'Cardiorespiratory Exercise Physiology', 3, 2, 1, 'KIN109'),
+    ('KIN204', 'Strength and Conditioning', 3, 2, 1, 'KIN109'),
+    ('KIN205', 'Exercise and Aging', 3, 2, 1, NULL),
+    ('KIN206', 'Sports Nutrition', 3, 2, 1, 'KIN110'),
 
-    -- Spring Semester
-    ('KIN207', 'Adapted Physical Activity', 3, 2, 2, NULL),
-    ('KIN208', 'Strength and Conditioning', 3, 2, 2, 'KIN109'),
-    ('KIN209', 'Motor Development', 3, 2, 2, 'KIN202'),
-    ('KIN210', 'Clinical Exercise Physiology', 3, 2, 2, 'KIN203'),
-    ('KIN211', 'Psychosocial Aspects of Disability', 3, 2, 2, NULL),
-    ('KIN212', 'Sport Management', 3, 2, 2, NULL);
+    -- Year 2, Semester 2
+    ('KIN207', 'Motor Development across the Lifespan', 3, 2, 2, 'KIN107'),
+    ('KIN208', 'Neuromechanics', 3, 2, 2, 'KIN107'),
+    ('KIN209', 'Exercise Testing and Interpretation', 3, 2, 2, 'KIN109'),
+    ('KIN210', 'Exercise Psychology', 3, 2, 2, 'KIN110'),
+    ('KIN211', 'Clinical Exercise Physiology', 3, 2, 2, 'KIN203'),
+    ('KIN212', 'Sport Sociology', 3, 2, 2, NULL),
 
-    -- Year 3
-    -- Fall Semester
-    ('KIN301', 'Exercise Epidemiology', 3, 3, 1, NULL),
-    ('KIN302', 'Sports Injury Management', 3, 3, 1, 'KIN112'),
-    ('KIN303', 'Exercise Physiology II', 3, 3, 1, 'KIN203'),
-    ('KIN304', 'Advanced Nutrition', 3, 3, 1, 'KIN111'),
-    ('KIN305', 'Advanced Exercise Physiology', 3, 3, 1, 'KIN204'),
-    ('KIN306', 'Sport Sociology', 3, 3, 1, NULL);
+    -- Year 3, Semester 1
+    ('KIN301', 'Advanced Exercise Physiology', 3, 3, 1, 'KIN203'),
+    ('KIN302', 'Advanced Biomechanics II', 3, 3, 1, 'KIN201'),
+    ('KIN303', 'Exercise Prescription for Special Populations', 3, 3, 1, 'KIN202'),
+    ('KIN304', 'Exercise Immunology', 3, 3, 1, NULL),
+    ('KIN305', 'Psychosocial Aspects of Physical Activity', 3, 3, 1, NULL),
+    ('KIN306', 'Exercise and Mental Health', 3, 3, 1, NULL),
 
-    -- Spring Semester
-    ('KIN307', 'Biomechanical Analysis', 3, 3, 2, 'KIN201'),
-    ('KIN308', 'Exercise Prescription for Special Populations', 3, 3, 2, 'KIN210'),
-    ('KIN309', 'Sport and Exercise Nutrition', 3, 3, 2, 'KIN111'),
-    ('KIN310', 'Sports Medicine Research', 3, 3, 2, 'KIN302'),
-    ('KIN311', 'Exercise Testing and Interpretation', 3, 3, 2, 'KIN210'),
-    ('KIN312', 'Exercise Immunology', 3, 3, 2, 'KIN303');
+    -- Year 3, Semester 2
+    ('KIN307', 'Applied Kinesiology', 3, 3, 2, 'KIN301'),
+    ('KIN308', 'Sport Injury Prevention and Rehabilitation', 3, 3, 2, 'KIN211'),
+    ('KIN309', 'Biomechanical Analysis of Sport Performance', 3, 3, 2, 'KIN202'),
+    ('KIN310', 'Advanced Exercise Testing and Prescription', 3, 3, 2, 'KIN209'),
+    ('KIN311', 'Nutrition for Performance', 3, 3, 2, 'KIN206'),
+    ('KIN312', 'Exercise and Chronic Disease Management', 3, 3, 2, NULL),
 
-    -- Year 4
-    -- Fall Semester
-    ('KIN401', 'Advanced Exercise Physiology II', 3, 4, 1, 'KIN305'),
-    ('KIN402', 'Advanced Biomechanics II', 3, 4, 1, 'KIN307'),
-    ('KIN403', 'Clinical Biomechanics', 3, 4, 1, 'KIN301'),
-    ('KIN404', 'Research Seminar in Kinesiology', 3, 4, 1, 'KIN310'),
-    ('KIN405', 'Exercise Rehabilitation', 3, 4, 1, 'KIN302'),
-    ('KIN406', 'Internship in Kinesiology', 6, 4, 1, NULL);
+    -- Year 4, Semester 1
+    ('KIN401', 'Research Methods in Kinesiology', 3, 4, 1, 'KIN112'),
+    ('KIN402', 'Advanced Topics in Kinesiology', 3, 4, 1, NULL),
+    ('KIN403', 'Internship in Kinesiology', 3, 4, 1, NULL),
+    ('KIN404', 'Capstone Project in Kinesiology', 3, 4, 1, NULL),
+    ('KIN405', 'Professional Development in Kinesiology', 3, 4, 1, NULL),
+    ('KIN406', 'Ethical Issues in Kinesiology', 3, 4, 1, NULL),
 
-    -- Spring Semester
-    ('KIN407', 'Thesis in Kinesiology', 6, 4, 2, NULL),
-    ('KIN408', 'Applied Kinesiology', 3, 4, 2, 'KIN401'),
-    ('KIN409', 'Advanced Exercise Prescription', 3, 4, 2, 'KIN311'),
-    ('KIN410', 'Sports Performance Analysis', 3, 4, 2, 'KIN402'),
-    ('KIN411', 'Ethics in Kinesiology', 3, 4, 2, NULL),
-    ('KIN412', 'Leadership in Kinesiology', 3, 4, 2, NULL);
+    -- Year 4, Semester 2
+    ('KIN407', 'Leadership in Kinesiology', 3, 4, 2, NULL),
+    ('KIN408', 'Public Health in Kinesiology', 3, 4, 2, NULL),
+    ('KIN409', 'Exercise Science in Practice', 3, 4, 2, NULL),
+    ('KIN410', 'Sport Management', 3, 4, 2, NULL),
+    ('KIN411', 'Innovation in Kinesiology', 3, 4, 2, NULL),
+    ('KIN412', 'Global Perspectives in Kinesiology', 3, 4, 2, NULL);
+
 
 
 
