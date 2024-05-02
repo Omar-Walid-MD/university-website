@@ -31,9 +31,8 @@ function Login({}) {
         }
         else
         {
-            const registeredPassword = (await performQuery("login",`WHERE Email = "${loginInfo.email}"`))[0].password;
-            console.log(registeredPassword);
-            if(registeredPassword && loginInfo.password === registeredPassword)
+            const registeredLogin = (await performQuery("login",`WHERE Email = "${loginInfo.email}"`))[0];
+            if(registeredLogin && loginInfo.password === registeredLogin.password)
             {
                 const studentID = (await performQuery("students",`WHERE Email = "${loginInfo.email}"`))[0].Student_ID;
                 dispatch(setLoginID(studentID));
@@ -58,7 +57,7 @@ function Login({}) {
                 <div className='gap-4 d-flex flex-column align-items-center p-4 w-50'>
                     <img src={require("../../assets/img/logo.png")} style={{width:150}} className='rounded-4 shadow border border-2 border-black' />
                     
-                    <h3>تسجيل دخول</h3>
+                    <h3>تسجيل الدخول</h3>
                     <div className='d-flex gap-3'>
                         <Form.Check
                             type="radio"

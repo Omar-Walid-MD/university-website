@@ -68,21 +68,6 @@ function DepartmentInfo({}) {
                         <p className='fs-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, aperiam incidunt quisquam esse repellat similique! Temporibus vero ea nobis aspernatur voluptatum iste earum, error autem molestias exercitationem nisi, at delectus? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore labore voluptas quod totam placeat autem voluptatibus saepe sunt quo odio ab enim beatae, magni, minima nesciunt, dolore aliquid debitis modi.</p>
                     </div>
                     <hr />
-                    <Row className='w-100 d-flex justify-content-between'>
-                        <Col className='col-4 d-flex flex-column align-items-center text-center'>
-                            <FaChalkboardTeacher size={200} />
-                            <h2>400 من أعضاء هيئة التدريس</h2>
-                        </Col>
-                        <Col className='col-4 d-flex flex-column align-items-center text-center'>
-                            <FaUsers size={200} />
-                            <h2>أكثر من 5000 طالب</h2>
-                        </Col>
-                        <Col className='col-4 d-flex flex-column align-items-center text-center'>
-                            <FaChalkboardTeacher size={200} />
-                            <h2>500+</h2>
-                        </Col>
-                    </Row>
-                    <hr />
                     <div>
                         <h2 className='mb-5 text-center'>المقررات الدراسية</h2>
                         <Accordion defaultActiveKey={["0"]}>

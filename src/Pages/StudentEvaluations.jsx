@@ -1,36 +1,112 @@
-import React from 'react';
-import { Accordion, Col, Container, Row } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Accordion, Col, Container, Row, Spinner } from 'react-bootstrap';
+import { performQuery } from '../helpers';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 
 function StudentEvaluations({}) {
+
+    const navigate = useNavigate();
+    const studentID = useSelector(store => store.auth.loginID);
+    const loading = useSelector(store => store.auth.loading);
+    const [studentInfo,setStudentInfo] = useState();
+
+    useEffect(()=>{
+        async function getSudentInfo()
+        {
+            const res = await performQuery("students",`WHERE Student_ID = "${studentID}"`);
+            if(res.length)
+            {
+                console.log(res[0]);
+                setStudentInfo(res[0]);
+                const dep = (await performQuery("students",`
+                    JOIN Departments ON Students.Department_ID = Departments.Department_ID
+                    WHERE Students.Student_ID = "${studentID}"
+                `))[0];
+                console.log(dep.Department_ID);
+
+                const facName = (await performQuery("departments",
+                `JOIN Faculties ON Departments.Faculty_ID = Faculties.Faculty_ID
+                WHERE Departments.Department_ID = '${dep.Department_ID}'
+                `))[0].Faculty_Name;
+
+                setStudentInfo(s =>({...s,depName:dep.Department_Name,facName}));
+
+
+            }
+            else navigate("/");
+
+        }
+        if(!loading) getSudentInfo();
+    },[loading]);
+
     return (
         <div className='page-container'>
             <Container className='py-5 d-flex flex-column gap-3'>
                 <h3 className=''>معلومات الطالب</h3>
-                <div className='w-100 d-flex flex-column border border-1 border-dark shadow rounded-4 p-3'>
-                    <Row className='w-100 g-3'>
-                        <Col className="col-6 d-flex flex-column">
-                            <span className='fs-6 text-black-50'>إسم الطالب:</span>
-                            <span className='fs-5'>إسم الطالب كاملا هنا</span>
-                        </Col>
+                {
+                    loading || !studentInfo ?
+                    <Spinner size={200}/>
+                    : studentInfo &&
+                    <div className='py-5 d-flex flex-column gap-3'>
+                        <h3 className=''>معلومات الطالب</h3>
+                        <div className='w-100 d-flex flex-column border border-1 border-dark shadow rounded-4 p-3'>
+                                
 
-                        <Col className="col-6 d-flex flex-column">
-                            <span className='fs-6 text-black-50'>كود الطالب:</span>
-                            <span className='fs-5'>12-3-4567</span>
-                        </Col>
+                            <Row className='w-100 g-3'>
+                                <Col className="col-6 d-flex flex-column">
+                                    <span className='fs-6 text-black-50'>إسم الطالب:</span>
+                                    <span className='fs-5'>{studentInfo.Name}</span>
+                                </Col>
+
+                                <Col className="col-6 d-flex flex-column">
+                                    <span className='fs-6 text-black-50'>كود الطالب:</span>
+                                    <span className='fs-5'>{studentID}</span>
+                                </Col>
 
 
-                        <Col className="col-6 d-flex flex-column">
-                            <span className='fs-6 text-black-50'>تاريخ الميلاد:</span>
-                            <span className='fs-5'>2000-01-01</span>
-                        </Col>
+                                
 
-                        <Col className="col-6 d-flex flex-column">
-                            <span className='fs-6 text-black-50'>الرقم القومي:</span>
-                            <span className='fs-5'>3333333333333</span>
-                        </Col>
+                                <Col className="col-6 d-flex flex-column">
+                                    <span className='fs-6 text-black-50'>الرقم القومي:</span>
+                                    <span className='fs-5'>{studentInfo.National_ID}</span>
+                                </Col>
 
-                    </Row>
-                </div>
+                                <Col className="col-6 d-flex flex-column">
+                                    <span className='fs-6 text-black-50'>الإيميل الجامعي:</span>
+                                    <span className='fs-5'>{studentInfo.Email}</span>
+                                </Col>
+
+
+                            </Row>
+                            <hr />
+                            <Row className='w-100 g-3'>
+                                <Col className="col-6 d-flex flex-column">
+                                    <span className='fs-6 text-black-50'>الكلية:</span>
+                                    <span className='fs-5'>{studentInfo.facName}</span>
+                                </Col>
+
+                                <Col className="col-6 d-flex flex-column">
+                                <span className='fs-6 text-black-50'>القسم العلمي:</span>
+                                    <span className='fs-5'>{studentInfo.depName}</span>
+                                </Col>
+
+
+                                <Col className="col-6 d-flex flex-column">
+                                <span className='fs-6 text-black-50'>الفرقة الدراسية:</span>
+                                    <span className='fs-5'>{studentInfo.Level}</span>
+                                </Col>
+
+                                <Col className="col-6 d-flex flex-column">
+                                <span className='fs-6 text-black-50'>المجموعة:</span>
+                                    <span className='fs-5'>{studentInfo.Section_ID}</span>
+                                </Col>
+
+                            </Row>
+
+                        </div>
+                    </div>
+                }
                 <h3 className='mt-5'>التقييمات</h3>
                 <h4 className='w-100 text-center mb-5'>المعدل التراكمي: 3.99</h4>
                 <Accordion defaultActiveKey={["0"]}>

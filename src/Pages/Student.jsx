@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Carousel, Col, Container, Row, Accordion, Spinner } from 'react-bootstrap';
-import { FaUser } from "react-icons/fa";
+import { BsPersonVcard } from "react-icons/bs";
 import { Link, useNavigate } from 'react-router-dom';
 import { performQuery } from '../helpers';
 import { useSelector } from 'react-redux';
@@ -50,9 +50,12 @@ function Student({}) {
                 loading || !studentInfo ?
                 <Spinner size={200}/>
                 : studentInfo &&
-                <Container className='py-5 d-flex flex-column gap-3'>
-                    <h3 className=''>معلومات الطالب</h3>
-                    <div className='w-100 d-flex flex-column border border-1 border-dark shadow rounded-4 p-3'>
+                <Container className='py-5'>
+                    <div className='d-flex align-items-center gap-3 bg-accent text-white p-2 px-3 rounded-top'>
+                        <BsPersonVcard size={45}/>
+                        <h3 className=''>معلومات الطالب</h3>
+                    </div>
+                    <div className='w-100 d-flex flex-column border border-1 border-dark shadow rounded-bottom p-3'>
                             
 
                         <Row className='w-100 g-3'>
@@ -121,7 +124,7 @@ function Student({}) {
                             </Col>
 
                             <Col className="col-6 d-flex flex-column">
-                            <span className='fs-6 text-black-50'>السكشن:</span>
+                            <span className='fs-6 text-black-50'>المجموعة:</span>
                                 <span className='fs-5'>{studentInfo.Section_ID}</span>
                             </Col>
 

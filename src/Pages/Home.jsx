@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Carousel, Col, Container, Row } from 'react-bootstrap';
 import { FaUsers } from "react-icons/fa";
+import { FiEye } from "react-icons/fi";
 import { IoMdArrowDropleftCircle } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import { performQuery } from '../helpers';
@@ -10,23 +11,23 @@ function Home({}) {
     const newsSample = [
         {
             title: "نتيجةُ امتحاناتِ نهايةِ الفصل الدراسي",
-            desc: "جامعةُ [اسم الجامعة] تُعلنُ عن التفاصيل (جامعة [University name] تكشف عن نتائج امتحانات نهاية الفصل الدراسي مع تحليل مفصل للإحصائيات والأداء)"
+            desc: "جامعةُ القمة تُعلنُ عن التفاصيل (جامعة القمة تكشف عن نتائج امتحانات نهاية الفصل الدراسي مع تحليل مفصل للإحصائيات والأداء)"
         },
         {
-            title: "انطلاقُ فعاليات أسبوعُ الريادةِ والإبداعِ في جامعة [اسم الجامعة]",
-            desc: "استعدوا لأسبوع مليء بالمحادثات الملهمة وورش العمل وفرص التواصل! تنطلق جامعة [اسم الجامعة] في فعاليات أسبوع الريادة والابتكار الذي يوفر للطلاب منصة لتطوير أفكارهم والتواصل مع المحترفين في المجال."
+            title: "انطلاقُ فعاليات أسبوعُ الريادةِ والإبداعِ في جامعة القمة",
+            desc: "استعدوا لأسبوع مليء بالمحادثات الملهمة وورش العمل وفرص التواصل! تنطلق جامعة القمة في فعاليات أسبوع الريادة والابتكار الذي يوفر للطلاب منصة لتطوير أفكارهم والتواصل مع المحترفين في المجال."
         },
         {
-            title: "جامعة [اسم الجامعة] تُعلنُ عن منح دراسية جديدة للطلاب الدوليين",
-            desc: "بشارة للطلاب الدوليين! يسر جامعة [اسم الجامعة] الإعلان عن إطلاق منح دراسية جديدة للبكالوريوس والدراسات العليا. لا تفوت هذه الفرصة لتحقيق أهدافك الأكاديمية في مؤسسة تعليمية عالمية المستوى."
+            title: "جامعة القمة تُعلنُ عن منح دراسية جديدة للطلاب الدوليين",
+            desc: "بشارة للطلاب الدوليين! يسر جامعة القمة الإعلان عن إطلاق منح دراسية جديدة للبكالوريوس والدراسات العليا. لا تفوت هذه الفرصة لتحقيق أهدافك الأكاديمية في مؤسسة تعليمية عالمية المستوى."
         },
         {
-            title: "باحثونَ من جامعة [اسم الجامعة] يُحققونَ اختراقًا علميًا مهمًا في مجالِ [المجال العلمي]",
-            desc: "خبار رائعة من جامعة [اسم الجامعة]! حقق فريق من الباحثين اختراقًا علميًا مهمًا في مجال [المجال العلمي]. يمتلك هذا الاكتشاف القدرة على [شرح موجز للتأثير المحتمل للاختراق]."
+            title: "باحثونَ من جامعة القمة يُحققونَ اختراقًا علميًا مهمًا في مجالِ [المجال العلمي]",
+            desc: "خبار رائعة من جامعة القمة! حقق فريق من الباحثين اختراقًا علميًا مهمًا في مجال [المجال العلمي]. يمتلك هذا الاكتشاف القدرة على [شرح موجز للتأثير المحتمل للاختراق]."
         },
         {
-            title: "بدءُ التسجيلِ في مؤتمر [اسم المؤتمر] الذي تستضيفه جامعة [اسم الجامعة]",
-            desc: "احجزوا تواريخكم! أصبح التسجيل مفتوحًا الآن لمؤتمر [اسم المؤتمر]، وهو حدث مهم في مجال [موضوع المؤتمر]. الذي تستضيفه جامعة [اسم الجامعة]، سيجمع المؤتمر كبار الخبراء لإجراء المناقشات والعروض التقديمية. لا تفوت هذه الفرصة للتعلم من الأفضل!"
+            title: "بدءُ التسجيلِ في مؤتمر التكنولوجيا الذي تستضيفه جامعة القمة",
+            desc: "احجزوا تواريخكم! أصبح التسجيل مفتوحًا الآن لمؤتمر [اسم المؤتمر]، وهو حدث مهم في مجال التكنولوجيا. الذي تستضيفه جامعة القمة، سيجمع المؤتمر كبار الخبراء لإجراء المناقشات والعروض التقديمية. لا تفوت هذه الفرصة للتعلم من الأفضل!"
         }
         
     ]
@@ -60,16 +61,24 @@ function Home({}) {
 
     const certificates = [
         {
-            img: "iso_9001_2015.png"
+            img: "iso_9001_2015.png",
+            name: "شهادة ISO-21001",
+            desc: "تعكس جودة إدارة التعليم وتعزز التفاعل الفعّال مع الطلاب والمجتمع المدرسي، مما يسهم في تعزيز تجربة التعلم وتحقيق النجاح الأكاديمي."
         },
         {
-            img: "iso_14001.png"
+            img: "iso_14001.png",
+            name: "شهادة ISO-14001",
+            desc: "تؤكد التزام الجامعة بحماية البيئة وتعزيز الاستدامة من خلال ممارسات الإدارة البيئية المبتكرة والمستدامة."
         },
         {
-            img: "iso_21001.jpg"
+            img: "iso_21001.jpg",
+            name: "ISO-9001:2015",
+            desc: "تعكس التزام الجامعة بتحقيق أعلى معايير الجودة في تقديم خدماتها التعليمية وإدارتها بكفاءة لضمان تلبية احتياجات الطلاب والمجتمع."
         },
         {
-            img: "iso_45001.png"
+            img: "iso_45001.png",
+            name: "ISO 45001",
+            desc: "تؤكد التزام الجامعة بتوفير بيئة عمل آمنة وصحية للموظفين والطلاب، وتعزز ممارسات السلامة المهنية والوقاية من الحوادث والأمراض المهنية."
         }
     ]
 
@@ -86,9 +95,10 @@ function Home({}) {
             <header className='home-header home-bg-1 w-100 text-white p-5 d-flex align-items-center justify-content-between'>
                 <Container className='d-flex h-100 justify-content-between gap-5'>
                     <img src={require("../assets/img/logo.png")} style={{width:350}} className='h-100 rounded-4 shadow' />
-                    <div className='d-flex flex-column gap-4'>
-                        <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h2>
-                        <p className='fs-5'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta nihil tempore reprehenderit ea voluptate et minus debitis quo exercitationem distinctio! Reprehenderit consequuntur officia ipsam corporis fugiat quaerat, mollitia assumenda quod?</p>
+                    <div>
+                        <h2 className='mb-5' style={{textShadow:"3px 3px 2px rgba(0,0,0,0.8)"}}>مرحباً بكم في جامعة القمة: مكان لاستكشاف عوالم العلم والتفكير المتجددة</h2>
+                        <p className='fs-5' style={{textShadow:"3px 3px 2px rgba(0,0,0,0.8)"}}>تعد جامعة القمة بيتاً للعلم والمعرفة، حيث يتجسد التميز في كل جانب من جوانبها. نقدم لكم بيئة تعليمية متطورة تمكنكم من التفاعل مع أفكار جديدة وتحديات ملهمة.</p>
+                        <p className='fs-5' style={{textShadow:"3px 3px 2px rgba(0,0,0,0.8)"}}>هنا، تمتزج الثقافات والتجارب لتصنع مستقبلًا مشرقًا لكل طالب يسعى إلى التميز والنجاح. انضموا إلينا اليوم واستعدوا للانطلاق نحو عالم الاكتشاف والإبداع.</p>
                     </div>
                 </Container>
             </header>
@@ -109,17 +119,15 @@ function Home({}) {
                                         </div>
                                     </Col>
                                     <Col className='px-5 py-2'>
-                                        <div className='h-100 rounded-3 border border-2 border-black shadow p-3 d-flex flex-column justify-content-between'>
-                                            <div>
+                                        <div className='h-100 rounded-3 border border-2 border-black shadow d-flex flex-column justify-content-between overflow-hidden'>
+                                            <div className='p-3 '>
                                                 <h2 className='mb-4'>{news.title}</h2>
+                                                <hr />
                                                 <p className='fs-5 w-100'>{news.desc}</p>
                                             </div>
-                                            <div className='d-flex justify-content-between'>
-                                                <div className="d-flex gap-3">
-                                                    <h5 className='mb-0'>من يومين</h5>
-                                                    <h5 className='mb-0'>100 مشاهدات</h5>
-                                                </div>
-                                                <Button variant='transparent' as={Link} className='border-0 rounded-0 bg-white p-0 link text-start' to={"/faculty/default"}>
+                                            <div className='bg-accent text-white d-flex justify-content-between align-items-center p-2'>
+                                                <h5 className='mb-0'><FiEye className='mb-1' /> 100 مشاهدات</h5>
+                                                <Button variant='transparent' as={Link} className='border-0 rounded-0 p-0 link text-start' to={"/faculty/default"}>
                                                     اعرف المزيد
                                                     <IoMdArrowDropleftCircle className='ms-2' size={25} />
                                                 </Button>
@@ -139,12 +147,10 @@ function Home({}) {
             <section className='home-section home-bg-2 text-white d-flex flex-column align-items-center justify-content-center bg-dark' style={{height:650}}>
                 <Container className='d-flex align-items-center flex-column text-center gap-5'>
                     <div className='d-flex flex-column align-items-center'>
-                        <h1 className='mb-4 pb-3 border-bottom border-4 border-white'>من نحن و من أين بدانا؟</h1>
-                        <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h4>
+                        <h1 style={{textShadow:"3px 3px 2px rgba(0,0,0,0.8)"}} className='mb-4 pb-3 border-bottom border-4 border-white'>قدّم الآن للالتحاق</h1>
+                        <h4 style={{textShadow:"3px 3px 2px rgba(0,0,0,0.8)"}}>اكتسب مستقبلك الواعد وانضمّ إلى مجتمعنا الأكاديمي المتميّز.</h4>
                     </div>
-                    <Button variant="light" className='main-btn'>
-                        إقرأ المزيد
-                    </Button>
+                    <Button as={Link} to={"/apply"} className='main-btn'>سجل التحاقك الان</Button>
                 </Container>
             </section>
 
@@ -159,7 +165,7 @@ function Home({}) {
                             style={{height:250}}
                             >
                                 <div className='home-fac-bg w-100 h-100 d-flex align-items-center justify-content-center'
-                                // style={{backgroundImage: `url(${require(`../assets/img/faculties/${fac.img}.jpg`)}`}}
+                                // style={{backgroundImage: `url(${require(`../assets/img/faculties/${fac.Faculty_ID}.jpg`)}`}}
                                 >
                                     <h3 className='text-white'>{fac.Faculty_Name}</h3>
                                 </div>
@@ -173,34 +179,24 @@ function Home({}) {
                     )
                     }
                     </Row>
-                    <Button to={"/faculties"} as={Link} variant='white' className='main-btn'>الاطلاع على جميع الكليات</Button>
+                    <Button to={"/faculties"} as={Link} className='main-btn'>الاطلاع على جميع الكليات</Button>
                 </Container>
             </section>
 
-            <section className='home-section text-white d-flex flex-column align-items-center justify-content-center bg-dark' style={{height:650}}>
-                <Container className='d-flex align-items-center flex-column text-center gap-5'>
-                    <div>
-                        <FaUsers size={200}/>
-                        <h3>بعض الكلام هنا عن الالتحاق في الجامعة و معلومات اخرى</h3>
-                    </div>
-                    <Button as={Link} to={"/apply"} variant="light" className='main-btn'>سجل التحاقك الان</Button>
-                </Container>
-            </section>
-
-            <section className='home-section d-flex flex-column align-items-center p-5 gap-5'>
+            <section className='home-section home-cert-bg d-flex flex-column align-items-center p-5 gap-5'>
                 <Container className='d-flex flex-column align-items-center p-5 gap-5'>
-                    <h1 className='pb-3 border-bottom border-4 border-black'>امتيازات الجودة لدينا</h1>
+                    <h1 className='py-3 border-bottom border-4 border-black'>امتيازات الجودة لدينا</h1>
                     <Row className='w-100 g-5 d-flex justify-content-center'>
                     {
                         certificates.map((cert,i)=>
-                        <Col className='col-12 col-md-6 col-lg-4 d-flex flex-column gap-3 align-items-center justify-content-center text-center' key={`cer-${i}`}>
+                        <Col className='col-12 col-md-6 d-flex flex-column gap-3 align-items-center justify-content-center text-center hover-scale' key={`cer-${i}`}>
                             <div className='d-flex align-items-center justify-content-between bg-white rounded-3 shadow p-3 border border-2 border-black overflow-hidden' style={{height:150,aspectRatio:1}}>
                                 <img src={require(`../assets/img/home-certificates/${cert.img}`)}
                                 className='h-100 w-100'
                                 alt="" />
                             </div>
-                            <h4>عنوان الجودة</h4>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis enim.</p>
+                            <h4 className='border-bottom border-1 border-black pb-2'>{cert.name}</h4>
+                            <p className='fs-5'>{cert.desc}</p>
                         </Col>
                         )
                     }
