@@ -23,12 +23,12 @@ function NavBar({}) {
         {
             setLoginName("مدير");
         }
-        else
+        else if(loginID)
         {
             async function getStudentName()
             {
                 const res = await performQuery("students",`WHERE Student_ID = "${loginID}"`);
-                setLoginName(res[0].Name);
+                if(res[0]) setLoginName(res[0].Name);
             }
             getStudentName();
         }
@@ -44,23 +44,28 @@ function NavBar({}) {
             <Nav className="me-auto d-flex align-items-center">
                 <Nav.Link to={"/"} as={Link}>الرئيسية</Nav.Link>
                 <Nav.Link to={"/faculties"} as={Link}>الكليات</Nav.Link>
+                <Nav.Link to={"/apply"} as={Link}>التحاق</Nav.Link>
+
             </Nav>
             <div className='d-flex align-items-center justify-content-center gap-2'>
             {
                 loggedIn ?
                 <>
-                    <span className='fw-bold'>
-                        {loginName}مرحبا, مدير
+                    <span className='fw-bold text-dark'>
+                        مرحبا, <span className='text-accent fs-5'>
+                                {loginName} 
+                            </span>
                     </span>
-                    <div className='rounded-circle d-flex align-items-center justify-content-center border border-2 shadow p-2 w-auto navbar-dropdown-menu'>
-                        <FaUser size={20} />
+                    <div className='h-100 d-flex align-items-center justify-content-center navbar-dropdown-menu'>
+                        <div className='bg-accent rounded-circle d-flex align-items-center justify-content-center border border-2 shadow p-2 w-auto '>
+                            <FaUser size={20} color='white' />
+                        </div>
                         <div className="position-absolute navbar-dropdown-container">
-                            <div className="bg-white shadow navbar-dropdown overflow-hidden">
+                            <div className="bg-white shadow navbar-dropdown overflow-hidden rounded-bottom border-top-0 border border-black border-2 shadow">
                             {
                                 loginID!=="admin" ?
                                 <>
                                     <Link to={"/student"} className='px-4 py-2 border-bottom d-flex justify-content-center text-decoration-none'>ملف الطالب</Link>
-                                    <Link to={"/student/evaluations"} className='px-4 py-2 border-bottom d-flex justify-content-center text-decoration-none'>التقديرات</Link>
                                     <Link to={"/course-selection"} className='px-4 py-2 border-bottom d-flex justify-content-center text-decoration-none'>تسجيل المقررات</Link>
                                 </>
                                 :
@@ -69,7 +74,7 @@ function NavBar({}) {
                                 </>
                             }
                                 <div className='px-4 py-2 d-flex justify-content-center'>
-                                    <Button variant='danger' onClick={()=>{dispatch(logOut())}}>تسجيل الخروج</Button>
+                                    <Button className='main-btn danger' onClick={()=>{dispatch(logOut())}}>تسجيل الخروج</Button>
                                 </div>
                             </div>
                         </div>

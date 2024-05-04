@@ -11,6 +11,10 @@
 {
   background-color: var(--accent) !important;
 }
+.text-accent
+{
+  color: var(--accent) !important;
+}
 
 .home-header, .home-section
 {
@@ -118,7 +122,6 @@ input[type=number] {
 {
   font-weight: 600;
   padding: 0.5rem 1.5rem !important;
-  font-size: calc(1.275rem + .3vw);
   color: white !important;
 
   border-radius: 0.25rem;
@@ -131,10 +134,12 @@ input[type=number] {
 
 .main-btn::before
 {
+  --color-1: #1f5c67;
+  --color-2: var(--accent);
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg ,#1f5c67  30%, var(--accent) 0%) !important;
+  background: linear-gradient(135deg ,var(--color-1)  30%, var(--color-2) 0%) !important;
   transform: translate(0,0);
   scale: 1.45 1.25;
   z-index: -1;
@@ -146,7 +151,17 @@ input[type=number] {
   transform: translate(15%,10%);
 }
 
+.main-btn.primary::before
+{
+  --color-1: #437b99;
+  --color-2: #0e5487;
+}
 
+.main-btn.danger::before
+{
+  --color-1: #994343;
+  --color-2: #851515;
+}
 
 .image-border
 {
@@ -291,7 +306,7 @@ input[type=number] {
 
 .info-modal > .modal-dialog
 {
-  max-width: min(900px, calc(100% - 50px)) !important;
+  max-width: min(1200px, calc(100% - 50px)) !important;
 }
 .info-modal 
 {
@@ -348,4 +363,15 @@ input[type=number] {
   background-color: #367f8a;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
   transition: width 0.5s ease-out;
+}
+
+
+.text-shadow
+{
+  text-shadow: 3px 3px 2px rgba(0,0,0,0.8);
+}
+
+.table-column .row:last-child
+{
+  border: none !important;
 }

@@ -21,12 +21,12 @@ function Footer({})
             </div>
           </Col>
           <Col className="col-md-6">
-            <h3>اتصل بنا</h3>
-            <ul>
-              <li>العنوان: شارع الجامعة، المدينة، الدولة</li>
+            <h3 className='border-bottom border-1 border-white pb-2 mb-3'>اتصل بنا</h3>
+            <div className='d-flex flex-column gap-2'>
+              <li>العنوان: شارع القمة، الإسكندرية </li>
               <li>الهاتف: +123456789</li>
-              <li>البريد الإلكتروني: info@university.edu</li>
-            </ul>
+              <li>البريد الإلكتروني: qimma-uni@university.edu</li>
+            </div>
           </Col>
         </Row>
       </Container>

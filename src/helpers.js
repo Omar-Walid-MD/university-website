@@ -32,3 +32,16 @@ export const makeUniqueId = function(list,length=5)
     
     return id;
 }
+
+export function getGPA(courses)
+{
+    let gradePoints = 0;
+    let credits = 0;
+    courses.forEach((course)=>{
+        const t = course.Classwork_Grade+course.Midterm_Grade+course.Finals_Grade;
+        gradePoints += t/25*course.Credit_Hours;
+        credits += course.Credit_Hours;
+    });
+
+    return (gradePoints/credits).toFixed(2);
+}

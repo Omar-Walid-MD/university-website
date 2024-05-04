@@ -147,10 +147,10 @@ function Home({}) {
             <section className='home-section home-bg-2 text-white d-flex flex-column align-items-center justify-content-center bg-dark' style={{height:650}}>
                 <Container className='d-flex align-items-center flex-column text-center gap-5'>
                     <div className='d-flex flex-column align-items-center'>
-                        <h1 style={{textShadow:"3px 3px 2px rgba(0,0,0,0.8)"}} className='mb-4 pb-3 border-bottom border-4 border-white'>قدّم الآن للالتحاق</h1>
-                        <h4 style={{textShadow:"3px 3px 2px rgba(0,0,0,0.8)"}}>اكتسب مستقبلك الواعد وانضمّ إلى مجتمعنا الأكاديمي المتميّز.</h4>
+                        <h1 className='mb-4 pb-3 border-bottom border-4 border-white text-shadow'>قدّم الآن للالتحاق</h1>
+                        <h4 className='text-shadow'>اكتسب مستقبلك الواعد وانضمّ إلى مجتمعنا الأكاديمي المتميّز.</h4>
                     </div>
-                    <Button as={Link} to={"/apply"} className='main-btn'>سجل التحاقك الان</Button>
+                    <Button as={Link} to={"/apply"} className='main-btn fs-3'>سجل التحاقك الان</Button>
                 </Container>
             </section>
 
@@ -165,9 +165,9 @@ function Home({}) {
                             style={{height:250}}
                             >
                                 <div className='home-fac-bg w-100 h-100 d-flex align-items-center justify-content-center'
-                                // style={{backgroundImage: `url(${require(`../assets/img/faculties/${fac.Faculty_ID}.jpg`)}`}}
+                                style={{backgroundImage: `url(${require(`../assets/img/faculties/${fac.Faculty_ID}.jpg`)}`}}
                                 >
-                                    <h3 className='text-white'>{fac.Faculty_Name}</h3>
+                                    <h3 className='text-white fw-bold text-shadow'>{fac.Faculty_Name}</h3>
                                 </div>
                                 <Button variant='transparent' as={Link} className='border-0 rounded-0 bg-white p-2 link w-100 text-start' to={`/faculty/${fac.Faculty_ID}`}>
                                     اعرف المزيد
@@ -179,7 +179,7 @@ function Home({}) {
                     )
                     }
                     </Row>
-                    <Button to={"/faculties"} as={Link} className='main-btn'>الاطلاع على جميع الكليات</Button>
+                    <Button to={"/faculties"} as={Link} className='main-btn fs-3'>الاطلاع على جميع الكليات</Button>
                 </Container>
             </section>
 

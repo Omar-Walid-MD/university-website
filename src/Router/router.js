@@ -10,12 +10,11 @@ import Auth from "../Layout/Auth";
 import Apply from "../Pages/Auth/Apply";
 import Faculties from "../Pages/Faculties";
 import Student from "../Pages/Student";
-import StudentEvaluations from "../Pages/StudentEvaluations";
+
 import CourseSelection from "../Pages/CourseSelection";
 import Dashboard from "../Pages/Admin/Dashboard";
 import AdminStudents from "../Pages/Admin/AdminStudents";
 import AdminProfessors from "../Pages/Admin/AdminProfessors";
-import AdminCourses from "../Pages/Admin/AdminCourses";
 
 const router = createBrowserRouter([
     {
@@ -48,10 +47,6 @@ const router = createBrowserRouter([
                         element: <Student />
                     },
                     {
-                        path:"student/evaluations",
-                        element: <StudentEvaluations />
-                    },
-                    {
                         path:"course-selection",
                         element: <CourseSelection />
                     },
@@ -66,10 +61,6 @@ const router = createBrowserRouter([
                     {
                         path: "dashboard/professors",
                         element: <AdminProfessors />
-                    },
-                    {
-                        path: "dashboard/courses",
-                        element: <AdminCourses />
                     }
                 ]
             },

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Carousel, FloatingLabel, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from 'react-hook-form';
@@ -48,6 +48,8 @@ const schemas = [
 
 function Apply({}) {
 
+    const navigate = useNavigate();
+    
     const [formIndex,setFormIndex] = useState(0);
 
     const [faculties,setFaculties] = useState([]);
@@ -55,13 +57,21 @@ function Apply({}) {
 
     const [facultySelect,setFacultySelect] = useState("");
 
-    const [applyInfo,setApplyInfo] = useState({});
+    const [applyInfo,setApplyInfo] = useState([
+        {},{},{}
+    ]);
 
     const { register: registerStudentInfo, handleSubmit: handleSubmitStudentInfo, reset: resetStudentInfo, formState: { errors: errorsStudentInfo } } = useForm({ resolver: yupResolver(schemas[0]) });
     const { register: registerParentInfo, handleSubmit: handleSubmitParentInfo, reset: resetParentInfo, formState: { errors: errorsParentInfo } } = useForm({ resolver: yupResolver(schemas[1]) });
     const { register: registerApplicationInfo, handleSubmit: handleSubmitApplicationInfo, reset: resetApplicationInfo, formState: { errors: errorsApplicationInfo } } = useForm({ resolver: yupResolver(schemas[2]) });
 
     const [passwordErrorMessage,setPasswordErrorMessage] = useState("");
+
+    function getFacultyLevels()
+    {
+        const fac = faculties.find((f) => f.Faculty_ID === facultySelect);
+        return fac ? fac.NoOfLevels : 0;
+    }
 
     function prevFormIndex()
     {
@@ -70,9 +80,12 @@ function Apply({}) {
 
     async function onSubmit(data)
     {
-        let updatedApplyInfo = {...applyInfo,...data}
+        let updatedApplyInfo = applyInfo.map((info,index) => index===formIndex ? ({...info,...data}) : info);
         setApplyInfo(updatedApplyInfo);
 
+        // if(updatedApplyInfo[0].Date_Of_Birth) updatedApplyInfo[0].Date_Of_Birth = updatedApplyInfo[0].Date_Of_Birth.split("T")[0]; 
+        // if(updatedApplyInfo[1].Date_Of_Birth) updatedApplyInfo[1].Date_Of_Birth = updatedApplyInfo[1].Date_Of_Birth.split("T")[0];
+        
         console.log(updatedApplyInfo);
 
         if(formIndex === 0)
@@ -94,17 +107,24 @@ function Apply({}) {
         else if(formIndex === 2)
         {
 
-            const parent_ID_List = (await performQuery("parents")).map((p)=>p.Parent_ID);
-            const new_parent_ID = makeUniqueId(parent_ID_List)
+            console.log(updatedApplyInfo);
+            const parent_ID_List = (await performQuery("parents")).map((p)=>p.Parent_ID.slice(1));
+            const new_parent_ID = "P"+makeUniqueId(parent_ID_List,8)
             await axios.post("http://localhost:8000/parents",
             {...updatedApplyInfo[1],Parent_ID:new_parent_ID}
             );
     
-            const student_ID_List = (await performQuery("students")).map((s)=>s.Student_ID);
-            const new_student_ID = makeUniqueId(student_ID_List)
+            const student_ID_List = (await performQuery("students")).map((s)=>s.Student_ID.slice(1));
+            const new_student_ID = "S"+makeUniqueId(student_ID_List,8)
             await axios.post("http://localhost:8000/students",
-            {...updatedApplyInfo[1],Student_ID:new_student_ID,Parent_ID:new_parent_ID,Department_ID:applyInfo.Department_ID}
+            {...updatedApplyInfo[0],Student_ID:new_student_ID,Parent_ID:new_parent_ID,...updatedApplyInfo[2]}
             );
+
+            await axios.post("http://localhost:8000/login",
+                [updatedApplyInfo[0].Email,updatedApplyInfo[0].Password]
+            );
+
+            navigate("/");
         }
 
 
@@ -130,7 +150,7 @@ function Apply({}) {
                     <img src={require("../../assets/img/light-logo.png")} style={{height:100}} alt="" />
                 </div>
                 
-                <div className='apply-progress-container m-4 rounded-pill overflow-hidden' style={{height:15}}>
+                <div className='apply-progress-container m-4 rounded-pill overflow-hidden border border-1 border-black' style={{height:15}}>
                     <div className='apply-progress h-100' style={{width:`${(formIndex+1)*100/3}%`}}></div>
                 </div>
                 
@@ -356,12 +376,23 @@ function Apply({}) {
                             </Form.Select>
 
                             <div className='w-100'>
+                                <Form.Select {...registerApplicationInfo("Level")} >
+                                    <option value="">اختر المستوى الدراسي</option>
+                                    {
+                                        Array.from({length:getFacultyLevels()}).map((x,i)=>
+                                        <option value={i+1}>المستوى {i+1}</option>
+                                        )
+                                    }
+                                </Form.Select>
+                                {errorsApplicationInfo.Level ? <div className='error-message text-danger mt-2'>{errorsApplicationInfo.Level.message}</div> : ''}
+                            </div>
+
+                            {/* <div className='w-100'>
                                 <div className='labeled-input'>
                                     <input className='p-2 rounded-1 w-100' placeholder='' type="number" {...registerApplicationInfo("Level")} />
                                     <span>المستوى الدراسي</span>
                                 </div>
-                                {errorsApplicationInfo.Level ? <div className='error-message text-danger mt-2'>{errorsApplicationInfo.Level.message}</div> : ''}
-                            </div>                
+                            </div>                 */}
 
                         </Form>
                     </Carousel.Item>
@@ -372,7 +403,7 @@ function Apply({}) {
                         formIndex>0 &&
                         <Button variant='transparent' className='mb-2 text-primary' onClick={prevFormIndex}>السابق</Button>
                     }
-                    <Button className='w-100 fs-5' type='submit' form={`application-form-${formIndex+1}`}>
+                    <Button className='w-100 fs-5 main-btn primary' type='submit' form={`application-form-${formIndex+1}`}>
                     {
                         formIndex === schemas.length-1 ? "تسليم طلب الإلتحاق" : "التالي"
                     }

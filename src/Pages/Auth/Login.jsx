@@ -32,7 +32,8 @@ function Login({}) {
         else
         {
             const registeredLogin = (await performQuery("login",`WHERE Email = "${loginInfo.email}"`))[0];
-            if(registeredLogin && loginInfo.password === registeredLogin.password)
+            console.log(registeredLogin);
+            if(registeredLogin && loginInfo.Password === registeredLogin.password)
             {
                 const studentID = (await performQuery("students",`WHERE Email = "${loginInfo.email}"`))[0].Student_ID;
                 dispatch(setLoginID(studentID));
@@ -95,7 +96,7 @@ function Login({}) {
                         <div className='w-100'>
                             <Link>نسيت كلمة المرور؟</Link>
                         </div>
-                        <Button className='main-btn text-dark fs-5 w-100' onClick={()=>onLogin()}>تسجيل الدخول</Button>
+                        <Button className='main-btn primary text-dark fs-5 w-100' onClick={()=>onLogin()}>تسجيل الدخول</Button>
                     </div>
                 </div>
             </Form>

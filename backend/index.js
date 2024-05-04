@@ -40,8 +40,8 @@ app.post('/students', (req, res) => {
   const value = [
     s.Student_ID,
     s.Name,
-    s.date_of_birth,
-    s.national_ID,
+    s.Date_Of_Birth.split("T")[0],
+    s.National_ID,
     s.Mobile_No, 
     s.Extra_Mobile_No,
     s.Email,
@@ -49,9 +49,9 @@ app.post('/students', (req, res) => {
     s.Gender,
     s.Parent_ID,
     s.Department_ID,
-    "S01",
+    1,
     s.Level,
-    s.GPA,
+    0,
     2023
   ];
 
@@ -79,7 +79,8 @@ app.get('/parents', (req, res) => {
 app.post('/parents', (req, res) => {
 
   const p = req.body;
-  const value = [p.Parent_ID,p.Name,p.Date_Of_Birth,p.National_ID,p.Mobile_No,p.Email,p.Address,p.Gender];
+  console.log(p);
+  const value = [p.Parent_ID,p.Name,p.Date_Of_Birth.split("T")[0],p.National_ID,p.Mobile_No,p.Email,p.Address,p.Gender];
 
   const query = 'INSERT INTO parents VALUES (?)';
   db.query(query,[value], (err, data) => {
@@ -155,12 +156,23 @@ app.get('/department-courses', (req, res) => {
 });
   
 
-app.get('/sections', (req, res) => {
-  const query = 'SELECT * FROM Sections ' + req.query.condition;
+app.get('/student-courses', (req, res) => {
+  const query = 'SELECT * FROM Student_Courses ' + req.query.condition;
   db.query(query, (err, data) => {
     if (err) {
-      console.error('Error fetching sections:', err);
-      return res.status(500).json({ error: 'Failed to retrieve sections' });
+      console.error('Error fetching student courses:', err);
+      return res.status(500).json({ error: 'Failed to retrieve student courses' });
+    }
+    res.json(data);
+  });
+});
+
+app.get('/professor-courses', (req, res) => {
+  const query = 'SELECT * FROM Professor_Courses ' + req.query.condition;
+  db.query(query, (err, data) => {
+    if (err) {
+      console.error('Error fetching professor courses:', err);
+      return res.status(500).json({ error: 'Failed to retrieve professor courses' });
     }
     res.json(data);
   });
@@ -172,6 +184,20 @@ app.get('/login', (req, res) => {
     if (err) {
       console.error('Error fetching login:', err);
       return res.status(500).json({ error: 'Failed to retrieve login' });
+    }
+    res.json(data);
+  });
+});
+
+app.post('/login', (req, res) => {
+
+  const loginInfo = req.body;
+
+  const query = 'INSERT INTO Login VALUES (?)';
+  db.query(query,[loginInfo], (err, data) => {
+    if (err) {
+      console.error('Error inserting login:', err);
+      return res.status(500).json({ error: 'Failed to insert login' });
     }
     res.json(data);
   });
